@@ -51,7 +51,7 @@ def process(file_name, context={}, template_path=None):
         pure_path = "./"
     pure_path = pure_path[:-1]
     site = env.get_template(template_path).render(pure_path=pure_path, **context)
-    (Path(f"./sites")/file_name).write_text(site, encoding='utf-8')
+    (Path(f"./docs")/file_name).write_text(site, encoding='utf-8')    # sites
 
 
 with pny.db_session:
