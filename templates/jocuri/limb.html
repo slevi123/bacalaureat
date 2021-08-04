@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block imports %}
+    <script src="{{pure_path}}/res/js/joc.js"></script>
+{% endblock imports %}
+
+{% block content %}
+    <div id="a">
+ 
+    </div>
+    <div id="b">
+
+    </div>
+
+
+
+    <script>
+        teme = [
+        {% for tema in teme %}
+            {"nev": "{{tema.nev}}", "nume": "{{tema.nume}}"},
+        {% endfor %}
+        ]
+    </script>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Opere</h2>
+    <table style="width:100%">
+        <tr>
+            <th>Nume</th>
+            <th>Autor</th>
+            <th>An</th>
+            <th>Curent Literar</th>
+            <th>Temă</th>
+            <th>Genul</th>
+        </tr>
+        {% for opera in opere %}
+        <tr>
+            <td><a href="./opera/{{opera.titlu|lower}}.html">{{opera.titlu}}</a></td>
+            <td>{{opera.artist}}</td>
+            <td>{{opera.anul}}</td>
+            <td>{{opera.curent.nume}}</td>
+            <td>{{opera.tema}}</td>
+            <td><a href="opere_{{opera.gen.nume}}e.html">{{opera.gen.nume}}</a></td>
+        </tr>
+        {% endfor %}
+        </table>
+{% endblock content %}

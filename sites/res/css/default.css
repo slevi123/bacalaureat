@@ -1,0 +1,180 @@
+body{
+    background-image: url('../patterns/ricepaper_v3/ricepaper_v3/ricepaper_v3_@2X.png');
+    font-family: 'Raleway', sans-serif;
+    /* color: blue; */
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+h2{
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+}
+
+table{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th{
+    font-size: 1.1em;
+}
+
+r{
+    color: rgb(255, 47, 47);
+}
+
+g{
+    color: rgb(47, 255, 47);
+}
+
+k{
+    color: rgb(47, 68, 255);
+}
+
+w{
+    color: rgb(223, 183, 52);
+}
+y{
+    color: rgb(26, 126, 156);
+}
+
+switch{
+    margin: 0;
+    padding: 0;
+}
+
+switch:hover{
+    cursor: pointer;
+}
+
+trans:hover{
+    color: hotpink;
+}
+
+.switch-element{
+    margin: 0;
+    padding: 0;
+}
+
+.centered{
+    text-align: center;
+}
+
+.tema{
+    padding:5px 16px ;
+    font-size: 22px;
+    margin: 0px;
+    /* border-bottom: 2px solid rgb(211, 212, 208); */
+}
+
+.logo{
+    font-family: 'Lobster', cursive;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.szeles{
+    letter-spacing: 1.5px;
+    line-height: 1.4em;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    margin: 0 70px;
+}
+
+.extras > *{
+    background: rgb(146, 231, 150);
+}
+
+.general >* {
+    background: rgb(243, 245, 226);
+}
+.tras >* {
+    background: rgb(240, 240, 240);
+}
+
+#motive >* {
+    background: rgb(191, 203, 236);
+}
+
+.linkuri > * {
+    background: rgb(191, 236, 208);
+}
+
+.flex > * {
+    border-radius: 24%/30%;
+    padding: 15px;
+    margin: 15px;
+}
+
+.hosszu {
+    border-radius: 0/0 !important; /* 5%/7%; */
+    /* color: khaki; */
+}
+
+.magyar-tema{
+    border-left: 2px solid rgb(0, 17, 255);
+}
+
+.sentiment{
+    border-left: 2px solid orangered;
+}
+
+.fizica {
+    border-left: 2px solid rgb(208, 255, 0);
+}
+
+.morala {
+    border-left: 2px solid rgb(0, 195, 255);
+}
+
+.negativ{
+    color: red;
+}
+
+.pozitiv{
+    color: greenyellow;
+}
+
+.neutru{
+    color: rgb(47, 130, 255);
+}
+
+.mood{
+    font-size: 30px;
+}
+
+.compunere{
+    margin: auto auto;
+    letter-spacing: 1.5px;
+    line-height: 2.2em;
+    margin: 50px;
+}
+
+.compunere > *{
+    text-indent:50px;
+    font-size: 27px;
+
+}
+
+
+
+#vers{
+    text-align: center;
+}

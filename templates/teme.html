@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Teme</h2>
+    <Table>
+        <tr>
+            <th>Român</th><th>Magyar</th>
+        </tr>
+         {% for tema in teme %}
+        <tr>
+            <td class="tema">{{tema.nume}}</td> <td class="magyar-tema tema {{tema|sentiment_decor}}">{{tema.nev}}</td>
+            <td>{{tema|e_sentiment}}</td>
+        </tr>
+        {% endfor %}
+    </Table>
+{% endblock content %}

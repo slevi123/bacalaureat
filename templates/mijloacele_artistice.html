@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Relația dintre ideea poetică și mijloacele artistice</h2>
+ <p class="centered"><b>Comentează, în minimum 50 de cuvinte, textul de mai jos, evidențiind relația dintre ideea poetică și mijloacele artistice.</b></p>
+ <div class="compunere">
+    <p>Fiind o creație lirică textul exprimă în mod direct sentimentele, stările sufletești și 
+        ideile eului liric.</p>
+    <p>Ideile poetice compun mesajul artistic al poeziei.</p>
+    <p>Mijloacele artistice sunt acele imagini artistice și figuri de stil care contribuie 
+        la expresivitatea ideilor poetice.</p>
+    <p>Tema (temele) poeziei dat este/sunt <a href="{{pure_path}}/teme.html"><trans limb="temă">____</trans>.</a></p>
+    <p>Sentimentele eului liric prezente în poezie sunt: <a href="{{pure_path}}/sentimente.html"><trans limb="sentiment">_________</trans>, 
+        <trans limb="sentiment">_________</trans> și <trans limb="sentiment">_________</trans></a>.</p>
+    <p>Această idee poetică este ilustrată prin imaginea artistică vizuală / auditivă / 
+        olfactivă / cromatică / dinamică / tactilă / gustativă: "<trans limb="citat">........</trans>" și prin
+        <trans limb="figură de stil">______________</trans>: "<trans limb="citat">........</trans>"  și prin
+        <trans limb="figură de stil">______________</trans>: "<trans limb="citat">........</trans>".</p>
+ </div>
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="vers">
+    <h2>{{opera.titlu}}</h2>
+    <h3>de {{opera.artist}}</h3>
+    {{opera.creatia|new_liner|safe}}
+</div>
+<div class="flex general">
+    <p>an: {{opera.anul}}</p>
+    <p>revistă: {{opera.revista}}</p>
+    <p>curent literar: {{opera.curent.nume}}</p>
+    <p>specie: {{opera.specie}}</p>
+</div>
+<div class="flex tras">
+        <!-- <p>titlu: {{opera.semnificatia_titlului}}</p> -->
+        <switch><p class="switch-element trans" limb="cím: {{opera.semnificatia_titlului.rovid}}">titlu: {{opera.semnificatia_titlului.scurt}}</p><p  class="switch-element trans" limb="{{opera.semnificatia_titlului.hosszu}}">{{opera.semnificatia_titlului.lung}}</p></switch>
+        <switch><p class="switch-element trans" limb="téma: {{opera.tema.rovid}}">temă: {{opera.tema.scurt}}</p><p  class="switch-element trans" limb="{{opera.tema.hosszu}}">{{opera.tema.lung}}</p></switch>
+        <!-- <div>
+            <h3>prozodia</h3> -->
+            <p>măsură: {{opera.masura}}</p>
+            <p>rimă: {{opera.rima.nume}}, {{opera.rima.formula}}</p>
+            <p>ritm: {{opera.ritm}}</p>
+            <!-- </div> -->
+        </div>
+        
+        <div class="flex" id="motive">
+            {% for motiva in opera.motive_specifice.split(", ") %}
+            {% set pair = motiva.split(":") %}
+            <p limb="{{pair[1]}}">{{pair[0]}}</p>
+            {% endfor %}
+        </div>
+        <div class="flex extras">
+            {% for extra in opera.extras %}
+            <switch><p class="switch-element trans" limb="{{extra.rovid}}">{{extra.scurt}}</p><p  class="switch-element trans hosszu" limb="{{extra.hosszu}}">{{extra.lung}}</p></switch>
+            {% endfor %}
+        </div>
+        <div class="flex structura">
+            {% for structura in opera.explicare_structurii %}
+            <switch><p class="switch-element trans" limb="{{structura.rovid}}">{{structura.scurt}}</p><p  class="switch-element trans hosszu" limb="{{structura.hosszu|safe}}">{{structura.lung|safe}}</p></switch>
+            {% endfor %}
+        </div>
+        <div class="flex structura">
+            <!-- <switch><p class="switch-element trans" limb="{{opera.discursul_liric.rovid}}">{{opera.discursul_liric.scurt}}</p><p  class="switch-element trans hosszu" limb="{{opera.discursul_liric.hosszu}}">{{opera.discursul_liric.lung}}</p></switch> -->
+            <switch><p class="switch-element trans" limb="versbeszéd: {{opera.discursul_liric.rovid}}">discurs liric: {{opera.discursul_liric.scurt}}</p><p  class="switch-element trans" limb="{{opera.discursul_liric.hosszu}}">{{opera.discursul_liric.lung}}</p></switch>
+            <switch><p class="switch-element trans" limb="{{opera.moduri_de_expunere.rovid}}">{{opera.moduri_de_expunere.scurt}}</p><p  class="switch-element trans hosszu" limb="{{opera.moduri_de_expunere.hosszu}}">{{opera.moduri_de_expunere.lung}}</p></switch>
+        </div>
+        
+        <div class="flex linkuri">
+            {% for linkpair in opera.linkuri.split(";") %}
+            {% set pair = linkpair.split(",") %}
+            <p><a href="{{pair[1]}}">{{pair[0]}}</a></p>
+            {% endfor %}
+        </div>
+        
+        {% endblock content %}

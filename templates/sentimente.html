@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Sentimente</h2>
+    <Table>
+        <tr>
+            <th>+/-</th>
+            <th>Român</th><th>Magyar</th>
+        </tr>
+         {% for sentiment in sentimente %}
+        <tr>
+            {% if sentiment.mood == "pozitiv" %}
+            <td class="pozitiv mood">+</td>
+            {% elif sentiment.mood == "negativ" %}
+            <td class="negativ mood">-</td>
+            {% else %}
+            <td class="neutru mood">.</td>
+            {% endif %}
+            <td class="tema">{{sentiment.nume}}</td> <td class="sentiment tema">{{sentiment.nev}}</td>
+        </tr>
+        {% endfor %}
+    </Table>
+{% endblock content %}

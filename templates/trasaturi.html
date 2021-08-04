@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Trăsături</h2>
+    <Table>
+        <tr>
+            <th>Român</th><th>Magyar</th>
+        </tr>
+         {% for trasatura in morale %}
+        <tr>
+            <td class="tema">{{trasatura.nume}}</td> <td class="tema morala">{{trasatura.nev}}</td>
+        </tr>
+        {% endfor %}
+        {% for trasatura in fizice %}
+        <tr>
+            <td class="tema">{{trasatura.nume}}</td> <td class="tema fizica">{{trasatura.nev}}</td>
+        </tr>
+        {% endfor %}
+    </Table>
+{% endblock content %}
