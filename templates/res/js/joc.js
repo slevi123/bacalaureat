@@ -4,6 +4,14 @@ morale = {{morale|safe}}
 fizice = {{fizice|safe}}
 
 
+class TemaKor {
+    constructor(){
+        this.list = []
+    }
+
+
+}
+
 class GameOptions {
     constructor(){
         this.answer_count = 4;
@@ -74,47 +82,61 @@ function on_start(){
     new_word();
 }
 
-function evaluate_solution(answer_count){
-    if (game_options.answer_id==answer_count){
+function evaluate_solution(user_answer_id){
+    if (game_options.answer_id==user_answer_id){
         game_options.punctaj +=1;
     }
-    new_word()
+
+    answer_doms = document.getElementById("answer-options").children
+    Array.from(answer_doms).forEach((answer_dom)=>{
+        let count = answer_dom.getAttribute("answer-count");
+        if (count==user_answer_id) answer_dom.style.border="3px solid red";;
+        if (count==game_options.answer_id) answer_dom.style.border="3px solid green";        
+    })
+
+    window.setTimeout( new_word, 2000);
 }
 
 function add_answer_child(parent, content, answer_count){
     let new_dom = document.createElement("p");
     new_dom.textContent = content;
-    // new_dom.setAttribute("answer-count", answer_count);
+    new_dom.setAttribute("answer-count", answer_count);
     new_dom.onclick=()=>evaluate_solution(answer_count);
     parent.appendChild(new_dom);
 }
 
 
 function new_word(){
-    question_dom = document.getElementById("question")
-    answers_dom = document.getElementById("answer-options")
+    let question_dom = document.getElementById("question")
+    let answer_doms = document.getElementById("answer-options")
 
     let question = ranlist(teme);
     game_options.answer_id = ~~(Math.random() * game_options.answer_count)
     // let answer_id = 3
     let answers = [];
     let temp_option = undefined;
-    for (let i=0; i<game_options.answer_count; i++){
-        if (i==game_options.answer_id){
-            answers.push(question);
-        } else{
-            do{
-                temp_option = ranlist(teme);
-            } while(question==temp_option);
-            answers.push(temp_option);
+    if (teme.length > game_options.answer_count){
+        for (let i=0; i<game_options.answer_count; i++){
+            if (i==game_options.answer_id){
+                answers.push(question);
+            } else{
+                do{
+                    temp_option = ranlist(teme);
+                } while(answers.includes(temp_option) || question==temp_option);
+                answers.push(temp_option);
+            }
         }
+    } else {
+        answers = teme;
+        
     }
 
     question_dom.textContent = question.nev;
 
-    remove_children(answers_dom)
+    remove_children(answer_doms)
     for (let i=0; i<game_options.answer_count; i++){
-        add_answer_child(answers_dom, answers[i].nume, i);
+        if (!answers[i]) break;
+        add_answer_child(answer_doms, answers[i].nume, i);
     }
 }
 
