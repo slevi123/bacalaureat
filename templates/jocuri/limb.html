@@ -2,23 +2,40 @@
 
 {% block imports %}
     <script src="{{pure_path}}/res/js/joc.js"></script>
+    <link rel="stylesheet" href="{{pure_path}}/res/css/joc.css">
 {% endblock imports %}
 
 {% block content %}
-    <div id="a">
- 
+    <button id="start-button" onclick="on_start()">Start</button>
+    <div id="game" style="display: none;">
+        <stats>
+            <h5>punctajul: 0</h5>
+            <h5 id="timer"></h5>
+        </stats>
+        <game-components>
+            <p id="question">
+                
+            </p>
+            <div id="answer-options">
+                
+            </div>
+        </game-components>
+        <button onclick="new_word()">skip</button>
     </div>
-    <div id="b">
-
+    
+    <div id="optiuni">
+        <label for="teme">teme: </label>
+        <input type="checkbox" id="sentimente-option" name="teme-option" value="show">
+        <label for="sentimente">sentimente: </label>
+        <input type="checkbox" id="sentimente-option" name="sentimente-option" value="show">
+        <label for="trasaturi">trasaturi: </label>
+        <input type="checkbox" id="trasaturi-option" name="trasaturi-option" value="show">
+        <label for="morale">morale: </label>
+        <input type="checkbox" id="morale-option" name="morale-option" value="show">
+        <label for="fizice">fizice: </label>
+        <input type="checkbox" id="fizice-option" name="fizice-option" value="show">
+        <label for="fanswer-num-option">numărul răspunsurilor: </label>
+        <input type="range" min="2" max="10" value="50" class="slider" id="answer-num-option">
     </div>
 
-
-
-    <script>
-        teme = [
-        {% for tema in teme %}
-            {"nev": "{{tema.nev}}", "nume": "{{tema.nume}}"},
-        {% endfor %}
-        ]
-    </script>
 {% endblock content %}

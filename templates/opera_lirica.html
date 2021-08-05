@@ -35,9 +35,9 @@
             <switch><p class="switch-element trans" limb="{{extra.rovid}}">{{extra.scurt}}</p><p  class="switch-element trans hosszu" limb="{{extra.hosszu}}">{{extra.lung}}</p></switch>
             {% endfor %}
         </div>
-        <div class="flex structura">
+        <div class="flex structura ordered-cont">
             {% for structura in opera.explicare_structurii %}
-            <switch><p class="switch-element trans" limb="{{structura.rovid}}">{{structura.scurt}}</p><p  class="switch-element trans hosszu" limb="{{structura.hosszu|safe}}">{{structura.lung|safe}}</p></switch>
+            <switch count={{structura.id}}><p class="switch-element trans" limb="{{structura.rovid}}">{{structura.scurt}}</p><p  class="switch-element trans hosszu" limb="{{structura.hosszu|safe}}">{{structura.hosszu|safe}}</p></switch>
             {% endfor %}
         </div>
         <div class="flex structura">

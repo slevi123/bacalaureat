@@ -4,6 +4,18 @@ function translate(element){
     element.textContent = other;
 }
 
+function sorted(){
+    let containers = document.getElementsByClassName;
+    Array.from(containers).forEach((container) =>{
+        children = container?.children?.sort((a,b)=>{
+            let cond = a.getAttribute("count") < b.getAttribute("count");
+            if (cont) return 1
+            else return -1;
+        })
+
+    })
+}
+
 
 function last(list){
     return list[list.length-1];

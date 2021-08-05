@@ -18,7 +18,7 @@
         </tr>
         {% for opera in opere %}
         <tr>
-            <td><a href="./opera/{{opera.titlu|lower}}.html">{{opera.titlu}}</a></td>
+            <td><a href="./opera/{{opera.titlu|linkify}}.html">{{opera.titlu}}</a></td>
             <td>{{opera.artist}}</td>
             <td>{{opera.anul}}</td>
             <td>{{opera.curent.nume}}</td>

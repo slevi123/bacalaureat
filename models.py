@@ -6,7 +6,7 @@ import pony.orm as pny
 from pony.orm.core import Required
 
 database = pny.Database("sqlite",
-                        "test46.sqlite",
+                        "test49.sqlite",
                         create_db=True)
 
 class Gen(database.Entity):
@@ -39,6 +39,7 @@ class Atribut(database.Entity):
     opera_explicare_structurii = pny.Optional("OperaLirica", reverse="explicare_structurii")
     opera_discurs_liric = pny.Optional("OperaLirica", reverse="discursul_liric")
     opera_moduri_de_expunere = pny.Optional("OperaLirica", reverse="moduri_de_expunere")
+    Personaj = pny.Optional("Personaj", reverse="extras")
 
 
 class Extra(database.Entity):
@@ -128,8 +129,21 @@ class Trasatura(database.Entity):
     nev = pny.Required(str)
     tip = pny.Required(str)  # fizice, morale
 
+class Personaj(database.Entity):
+    nume = pny.Required(str)
+
+    rol = pny.Optional(str)
+
+    opera_epica = pny.Optional("OperaEpica")
+    opera_dramatica = pny.Optional("OperaDramatica")
+
+    extras = pny.Set(Atribut)
+
 class OperaEpica(Opera):
-    pass
+    personaje = pny.Set(Personaj)
+
+class OperaDramatica(Opera):
+    personaje = pny.Set(Personaj)
 
 
 
