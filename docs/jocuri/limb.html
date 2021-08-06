@@ -42,27 +42,50 @@
         </game-components>
         <button onclick="TemaKor.generate_random_round()">skip</button>
     </div>
-    
     <div id="optiuni" class="unselectable">
-        <label for="teme">teme: 
-            <input type="checkbox" id="sentimente-option" name="teme-option" value="show">
+        <label for="opere-option">trăsături operelor: 
+            <input type="checkbox" id="opere-option" onchange="children_enabler(this, ['anul-option'])">
         </label>
-        <label for="sentimente" class="tab-padding">sentimente: 
-            <input type="checkbox" id="sentimente-option" name="sentimente-option" value="show">
+        <label for="anul-option" class="tab-padding">an: 
+            <input type="checkbox" id="anul-option" onchange="Anul.bind(this)">
         </label>
-        <label for="trasaturi">trăsături: 
-            <input type="checkbox" id="trasaturi-option" name="trasaturi-option" value="show">
         </label>
-        <label for="morale" class="tab-padding">morale: 
-            <input type="checkbox" id="morale-option" name="morale-option" value="show">
+        <label for="artist-option" class="tab-padding">artist: 
+            <input type="checkbox" id="artist-option" onchange="Artiste.bind(this)">
         </label>
-        <label for="fizice" class="tab-padding">fizice: 
-            <input type="checkbox" id="fizice-option" name="fizice-option" value="show">
         </label>
-        <label for="fanswer-num-option">numărul răspunsurilor: </label>
+        <label for="curent-option" class="tab-padding">curent: 
+            <input type="checkbox" id="curent-option" onchange="Curente.bind(this)">
+        </label>
+        </label>
+        <label for="perioada-option" class="tab-padding">perioadă: 
+            <input type="checkbox" id="perioada-option" onchange="Perioade.bind(this)">
+        </label>
+
+        <label for="cuvinte-option">învățarea cuvintelor: 
+            <input type="checkbox" id="cuvinte-option" onchange="children_enabler(this, ['teme-option', 'sentimente-option', 'trasaturi-option',])">
+        </label>
+
+        <label for="teme" class="tab-padding">teme: 
+            <input type="checkbox" id="teme-option" class="tab-padding" onchange="Teme.bind(this)" name="teme-option" value="show">
+        </label>
+        <label for="sentimente-option" class="double-tab-padding">sentimente: 
+            <input type="checkbox" id="sentimente-option" name="sentimente-option" onchange="Sentimente.bind(this)" value="show">
+        </label>
+        <label for="trasaturi-option" class="tab-padding">trăsături: 
+            <input type="checkbox" id="trasaturi-option" name="trasaturi-option" onchange="children_enabler(this, ['morale-option','fizice-option'])" value="show">
+        </label>
+        <label for="morale-option" class="double-tab-padding">morale: 
+            <input type="checkbox" id="morale-option" name="morale-option" onchange="Morale.bind(this)" value="show">
+        </label>
+        <label for="fizice-option" class="double-tab-padding">fizice: 
+            <input type="checkbox" id="fizice-option" name="fizice-option" onchange="Fizice.bind(this)" value="show">
+        </label>
+        <label for="answer-num-option">numărul răspunsurilor: </label>
         <input type="range" min="2" max="10" value="4" class="slider" id="answer-num-option">
     </div>
 
 
+        <h6>under development!</h6>
     </body>
 </html>

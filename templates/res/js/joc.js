@@ -2,7 +2,18 @@ teme = {{teme|safe}}
 sentimente = {{sentimente|safe}}
 morale = {{morale|safe}}
 fizice = {{fizice|safe}}
+opere = {{opere|safe}}
 
+function children_enabler(checkbox, children_ids){
+    children_ids.forEach((child_id)=>{
+        console.log(child_id)
+        child_dom = document.getElementById(child_id);
+        child_dom.checked = checkbox.checked;
+        child_dom.disabled= !checkbox.checked;
+        // console.log("child disabled: ", child_dom)
+        child_dom.dispatchEvent(new Event("change"));
+    })
+}
 
 class TemaKor {
     static derived = [];
@@ -15,6 +26,7 @@ class TemaKor {
     static question = "";
     static question_possible = "";
     static answer_possible = "";
+    static enabled = true;
 
     // static list = fizice;
     static mixable = true;
@@ -28,9 +40,15 @@ class TemaKor {
     // }
 
     static get question_extension(){
-        console.log(this.question_possible)
-        console.log(this.possibles[this.question_possible])
+        // console.log(this.question_possible)
+        // console.log(this.possibles[this.question_possible])
         return this.possibles[this.question_possible];
+    }
+
+    static bind(checkbox){
+            // console.log("state changed: ", checkbox.checked)
+            // console.log(this)
+            this.enabled = checkbox.checked;
     }
 
     static answer_form(answer){
@@ -44,15 +62,23 @@ class TemaKor {
     }
 
     static generate_random_round(){
-        console.log(this.derived, this)
-        return ranlist(this.derived).new_word();
+        // console.log(this.derived, this)
+            let enabled_deriveds = [];
+            this.derived.forEach((deriv)=>{
+                // console.log(deriv.enabled)
+                if (deriv.enabled) enabled_deriveds.push(deriv);
+            })
+            console.log(enabled_deriveds)
+            if (enabled_deriveds){
+                return ranlist(enabled_deriveds).new_word();
+            } else window.alert("Selectează mai multe opțiuni!")
     }
 
     static generate_round() {
         let keys  = Object.keys(this.possibles);
         this.question =  ranlist(this.list);
         this.question_possible = ranlist(keys);
-        console.log("after_creation: ", this.question_possible)
+        // console.log("after_creation: ", this.question_possible)
         game_options.answer_id = ~~(Math.random() * Math.min(game_options.answer_count, this.list.length))
 
         do{
@@ -73,7 +99,7 @@ class TemaKor {
                 this.answers.push(temp_option);
             }
         }
-        console.log("round generated");
+        // console.log("round generated");
     }
 
     static new_word(){
@@ -92,23 +118,76 @@ class TemaKor {
     }
 }
 
+class Anul extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere;
+    static mixable = false;
+    static possibles = {
+        "titlu": {"pre": 'Anul publicării operei "', post:'"?'},
+        "anul": {"pre": "Operă publicat în ", post:"?"}, 
+    }
+}
+
+class Curente extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere;
+    static mixable = false;
+    static possibles = {
+        "titlu": {"pre": 'Curentul literar operei "', post:'"?'},
+        "curent": {"pre": "Operă care se încadrează în ", post:"?"}, 
+    }
+}
+
+class Perioade extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere;
+    static mixable = false;
+    static possibles = {
+        "titlu": {"pre": 'Perioada operei "', post:'"?'},
+        "perioada": {"pre": "Operă care se încadrează în ", post:"?"}, 
+    }
+}
+
+class Artiste extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere;
+    static mixable = false;
+    static possibles = {
+        "titlu": {"pre": 'Autorul operei "', post:'"?'},
+        "artist": {"pre": "Operă scrisă de ", post:"?"}, 
+    }
+}
+
+
 class Sentimente extends TemaKor {
     static dummy = TemaKor.derived.push(this);
+    static enabled = true;
 
     static list = sentimente;
 }
 class Morale extends TemaKor {
     static dummy = TemaKor.derived.push(this);
+    static enabled = true;
 
     static list = morale;
 }
 class Fizice extends TemaKor {
     static dummy = TemaKor.derived.push(this);
+    static enabled = true;
 
     static list = fizice;
 }
 class Teme extends TemaKor {
     static dummy = TemaKor.derived.push(this);
+    static enabled = true;
 
     static list = teme;
 }
@@ -212,4 +291,10 @@ function add_answer_child(parent, content, answer_count){
 
 
 
-// window.addEventListener("load", );
+window.addEventListener("load", ()=>{
+    let option_dom = document.getElementById("optiuni");
+    Array.from(option_dom.children).forEach((label)=>{
+        input_dom = label.children[0];
+        if (input_dom?.type=="checkbox") input_dom.checked=true;
+    })
+});

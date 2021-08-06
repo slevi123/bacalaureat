@@ -86,7 +86,7 @@ def add_data():
         {"nume": "nostalgie", "nev": "nosztalgia"},
         {"nume": "depresie", "nev": "depresszió", "mood": "negativ"},
         {"nume": "spaimă existențială", "nev": "létfélelem", "mood": "negativ"},
-        {"nume": "supărarea", "nev": "harag", "mood": "negativ"},
+        {"nume": "supărare", "nev": "harag", "mood": "negativ"},
         {"nume": "jale", "nev": "gyász", "sinonim":"doliu", "mood": "negativ"},
         {"nume": "singurătate", "nev": "magány", "mood": "negativ"},
         {"nume": "pasiune", "nev": "szenvedély", "mood": "pozitiv"},

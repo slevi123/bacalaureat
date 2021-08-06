@@ -3,7 +3,7 @@ import pony.orm as pny
 from models import Opera, OperaDramatica, OperaEpica, OperaLirica, Sentiment, Tema, Trasatura
 from pathlib import Path
 from filters import register_filters, linkify
-from serializers import NevNumeSerializer
+from serializers import NevNumeSerializer, OperaSerializer
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def render():
@@ -52,11 +52,12 @@ def render():
         fizice = pny.select(trasatura for trasatura in Trasatura if trasatura.tip=="fizică")
         process("trasaturi.html", context={"morale": morale, "fizice": fizice})
         teme_fara_sentimente = pny.select(tema for tema in Tema if not isinstance(tema, Sentiment))
-        ser = NevNumeSerializer()
+        nn_ser = NevNumeSerializer()
+        op_ser = OperaSerializer()
 
         process("jocuri/limb.html")
-        process("res/js/joc.js", context={"teme": ser.query_serialize(teme_fara_sentimente), "sentimente": ser.query_serialize(sentimente), 
-            "morale": ser.query_serialize(morale), "fizice": ser.query_serialize(fizice)})
+        process("res/js/joc.js", context={"teme": nn_ser.query_serialize(teme_fara_sentimente), "sentimente": nn_ser.query_serialize(sentimente), 
+            "morale": nn_ser.query_serialize(morale), "fizice": nn_ser.query_serialize(fizice), "opere": op_ser.query_serialize(opere)})
 
         for opera in opere_lirice:
             process(f"opera/{linkify(opera.titlu)}.html", context = {"opera": opera}, template_path="opera_lirica.html")
