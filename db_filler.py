@@ -123,7 +123,7 @@ def add_data():
             "linkuri": "psihotrop,https://youtu.be/qqBhVh3ZaWg;5 minute pentru BAC,https://youtu.be/pS73lnXdoE4"},
         {"titlu": "Sara pe deal", "artist": "Mihai Eminescu", "curent": CurentLiterar.cu_nume("romantism"), "gen": Gen.e("liric"), "anul": 1885, "tema": Atribut(scurt="natura, iubirea"), "semnificatia_titlului": Atribut(scurt="locul și timpul întâlnirii intimă"),
             "rima": Rima.e("împerecheată"), "masura": "12 silabe", "ritm": "un coriamb, doi dactili şi un troheu", "creatia": citire_poeziei("sara_pe_deal"),
-            "motive_specifice":"clopot:harang, stele:csillagok, salcâm:akácfa, cer:ég, deal:domb, fântână:kút", "revista":"Convorbiri literare", "perioada": "Epoca Marilor Clasici", "specie": "idilă (cu elemente de pastel)",
+            "motive_specifice":"clopot:harang, stele:csillagok, salcâm:akácfa, cer:ég, deal:domb, fântână:kút", "revista":"Convorbiri literare", "perioada": "epoca marilor clasici", "specie": "idilă (cu elemente de pastel)",
             "linkuri": "1md.online-analiză,https://1md.online/versuri/comentariu/eminescu-sara-pe-deal"},
         {"titlu": "Flori de mucigai", "artist": "Tudor Arghezi", "curent": CurentLiterar.cu_nume("modernism"), "gen": Gen.e("liric"), "anul": 1931, 
             "tema": Atribut(scurt="condiția poetului", rovid="a költő szerepe", lung="Tema prezintă condiția poetului damnat care este contrâns să creeze artă eternă în cele mai grele condiții.", hosszu="A vers témája bemutatja az elítélt költő szerepét, aki arra kényszerül, hogy a legnehezebb körülmények között maradandót alkosson."), 
@@ -164,7 +164,7 @@ def add_data():
  
     opere_epice_list = [
         {"titlu": "Povestea lui Harap-Alb", "artist": "Ion Creangă", "curent": CurentLiterar.cu_nume("romantic realism"), "gen": Gen.e("epic"), "anul": 1877, "tema": Atribut(scurt="maturizarea"), "semnificatia_titlului": Atribut(scurt="numele personajului principal"),
-            "perioada": "Epoca marilor clasici", "specie": "basm cult", "revista": "Convorbiri literare",
+            "perioada": "epoca marilor clasici", "specie": "basm cult", "revista": "Convorbiri literare",
             "linkuri": "psihotrop,https://youtu.be/t0BvXdPksi4"},
         {"titlu": "Enigma Otiliei", "artist": "George Călinescu", "curent": CurentLiterar.cu_nume("modernism, realism"), "gen": Gen.e("epic"), "anul": 1938, "tema": Atribut(scurt="iubirea, averea, moștenirea și viața socială"), "semnificatia_titlului": Atribut(scurt="misterul, simbolizează feminin etern"),
             "perioada": "interbelică", "specie": "roman modern, realist obiectiv", "revista": "",
@@ -173,7 +173,7 @@ def add_data():
             "perioada": "interbelică", "specie": "roman psihologic, modern subiectiv", "revista": "",
             "linkuri": "psihotrop,https://youtu.be/1h8p0W_9cns"},
         {"titlu": "Moara cu noroc", "artist": "Ioan Slavici", "curent": CurentLiterar.cu_nume("realism"), "gen": Gen.e("epic"), "anul": 1881, "tema": Atribut(scurt="averea, familia, iubirea"), "semnificatia_titlului": Atribut(scurt="locul acțiunii, oximoron simbolic"),
-            "perioada": "interbelică", "specie": "nuvelă psihologică și realistă", "revista": "",
+            "perioada": "epoca marilor clasici", "specie": "nuvelă psihologică și realistă", "revista": "",
             "linkuri": "psihotrop,https://youtu.be/Vq3VaFsOtCU"},
     ]
 
@@ -181,7 +181,7 @@ def add_data():
 
     opere_dramatice_list = [
         {"titlu": "O scrisoare pierdută", "artist": "Ion Luca Caragiale", "curent": CurentLiterar.cu_nume("realism"), "gen": Gen.e("dramatic"), "anul": 1884, "tema": Atribut(scurt="u"), "semnificatia_titlului": Atribut(scurt="leitmotiv, instrumentul șantajului"),
-            "perioada": "Epoca marilor clasici", "specie": "comedie",
+            "perioada": "epoca marilor clasici", "specie": "comedie",
             "linkuri": "psihotrop,https://youtu.be/Lk_u0qFOC4w;5 minute pentru BAC,https://youtu.be/ghWLmbX5bvg"},
     ]
 

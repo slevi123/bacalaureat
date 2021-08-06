@@ -30,7 +30,7 @@
     </div>
     <div id="optiuni" class="unselectable">
         <label for="opere-option">trăsături operelor: 
-            <input type="checkbox" id="opere-option" onchange="children_enabler(this, ['anul-option'])">
+            <input type="checkbox" id="opere-option" onchange="children_enabler(this, ['anul-option', 'artist-option', 'perioada-option', 'anulautor-option', 'curent-option'])">
         </label>
         <label for="anul-option" class="tab-padding">an: 
             <input type="checkbox" id="anul-option" onchange="Anul.bind(this)">
@@ -46,6 +46,9 @@
         </label>
         <label for="perioada-option" class="tab-padding">perioadă: 
             <input type="checkbox" id="perioada-option" onchange="Perioade.bind(this)">
+        </label>
+        <label for="anulautor-option" class="tab-padding">autor-an: 
+            <input type="checkbox" id="anulautor-option" onchange="AnulAutor.bind(this)">
         </label>
 
         <label for="cuvinte-option">învățarea cuvintelor: 

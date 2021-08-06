@@ -2,7 +2,9 @@ teme = [{"nev": "természet", "nume": "natură"}, {"nev": "emberi élet", "nume"
 sentimente = [{"nev": "boldogság", "nume": "fericire"}, {"nev": "vidámság", "nume": "veselie"}, {"nev": "öröm", "nume": "bucurie"}, {"nev": "szerelem, szeretet", "nume": "dragoste"}, {"nev": "vágy", "nume": "dor"}, {"nev": "vágyakozás", "nume": "dorință"}, {"nev": "szomorúság", "nume": "tristețe"}, {"nev": "sajnálat", "nume": "părerea de rău"}, {"nev": "lelki fájdalom", "nume": "durere sufletească"}, {"nev": "szenvedés", "nume": "suferință"}, {"nev": "melankólia", "nume": "melancolie"}, {"nev": "nosztalgia", "nume": "nostalgie"}, {"nev": "depresszió", "nume": "depresie"}, {"nev": "létfélelem", "nume": "spaimă existențială"}, {"nev": "harag", "nume": "supărare"}, {"nev": "gyász", "nume": "jale"}, {"nev": "magány", "nume": "singurătate"}, {"nev": "szenvedély", "nume": "pasiune"}, {"nev": "gyűlölet", "nume": "ură"}, {"nev": "irigység", "nume": "gelozie"}]
 morale = [{"nev": "jó", "nume": "bun"}, {"nev": "rossz", "nume": "rău"}, {"nev": "okos", "nume": "deștept"}, {"nev": "szerető", "nume": "iubitor"}, {"nev": "tapintatos", "nume": "amabil"}, {"nev": "idétlen", "nume": "urâcios"}]
 fizice = [{"nev": "magas", "nume": "înalt"}, {"nev": "gyenge", "nume": "slab"}, {"nev": "rövid", "nume": "scund"}, {"nev": "kövér", "nume": "gras"}, {"nev": "szőke", "nume": "blond"}, {"nev": "göndör", "nume": "creț"}, {"nev": "barna", "nume": "saten"}]
-opere = [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "curent": "romantic realism", "artist": "Ion Creangă", "perioada": "Epoca marilor clasici"}, {"titlu": "Moara cu noroc", "anul": 1881, "curent": "realism", "artist": "Ioan Slavici", "perioada": "interbelică"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "curent": "realism", "artist": "Ion Luca Caragiale", "perioada": "Epoca marilor clasici"}, {"titlu": "Sara pe deal", "anul": 1885, "curent": "romantism", "artist": "Mihai Eminescu", "perioada": "Epoca Marilor Clasici"}, {"titlu": "Plumb", "anul": 1916, "curent": "simbolism", "artist": "George Bacovia", "perioada": "antebelică"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "curent": "modernism", "artist": "Camil Petrescu", "perioada": "interbelică"}, {"titlu": "Flori de mucigai", "anul": 1931, "curent": "modernism", "artist": "Tudor Arghezi", "perioada": "interbelică"}, {"titlu": "Enigma Otiliei", "anul": 1938, "curent": "modernism, realism", "artist": "George Călinescu", "perioada": "interbelică"}]
+opere = [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}, {"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}, {"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}, {"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}, {"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}]
+opere_curente = {"simbolism": [{"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}], "romantism": [{"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}], "modernism": [{"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}], "romantic realism": [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}], "realism": [{"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}, {"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}], "modernism, realism": [{"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}]}
+opere_perioade = {"antebelică": [{"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}], "epoca marilor clasici": [{"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}, {"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}, {"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}], "interbelică": [{"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}]}
 
 function children_enabler(checkbox, children_ids){
     children_ids.forEach((child_id)=>{
@@ -51,6 +53,11 @@ class TemaKor {
             this.enabled = checkbox.checked;
     }
 
+    // static asem_render(thing, possible){
+    //     if (thing.asemanatori && thing.asemanatori[possible]) return ranlist(thing[possible])
+    //     else return thing[possible];
+    // }
+
     static answer_form(answer){
         return answer[this.answer_possible];
     }
@@ -74,17 +81,20 @@ class TemaKor {
             } else window.alert("Selectează mai multe opțiuni!")
     }
 
-    static generate_round() {
+    static generate_possibles(){
         let keys  = Object.keys(this.possibles);
-        this.question =  ranlist(this.list);
         this.question_possible = ranlist(keys);
-        // console.log("after_creation: ", this.question_possible)
-        game_options.answer_id = ~~(Math.random() * Math.min(game_options.answer_count, this.list.length))
-
         do{
             this.answer_possible = ranlist(keys);
         } while (this.answer_possible==this.question_possible);
+    }
 
+    static generate_round() {
+        this.question =  ranlist(this.list);
+        // console.log("after_creation: ", this.question_possible)
+        game_options.answer_id = ~~(Math.random() * Math.min(game_options.answer_count, this.list.length))
+
+        this.generate_possibles();
         this.answers = [];
         let temp_option = undefined;
 
@@ -95,6 +105,7 @@ class TemaKor {
             } else{
                 do{
                     temp_option = ranlist(this.list);
+                    // console.log(temp_option)
                 } while(this.answers.includes(temp_option) || this.question==temp_option);
                 this.answers.push(temp_option);
             }
@@ -118,6 +129,54 @@ class TemaKor {
     }
 }
 
+class AsemTemaKor extends TemaKor{
+    static asem_possible = "";
+    static dict = {}
+    // static asem_possible_extensions = {}
+
+    static is_asem_question_possible = 0;
+    static other_possible = "";
+
+    // static asem_render(thing, possible){
+    //     if (possible==this.asem_possible) return ranlist(thing[possible])
+    //     else return thing[possible];
+    // }
+
+    static generate_possibles(){
+        let keys  = Object.keys(this.possibles);
+        this.other_possible = ranlist(keys);
+    }
+    
+    static answer_form(answer){
+        let answer_body = answer;
+        if (this.is_asem_question_possible){
+            answer_body=ranlist(this.dict[answer])[this.other_possible];
+        }
+        return answer_body;
+    }
+    
+    static get question_extension(){
+        if (this.is_asem_question_possible){
+            return this.asem_possible_extensions;
+        } else return this.possibles[this.other_possible];
+    }
+
+    static get question_formula(){
+        let question_body = this.question;
+        if (!this.is_asem_question_possible){
+            question_body=ranlist(this.dict[this.question])[this.other_possible];
+        }
+        return this.question_extension["pre"] + question_body + this.question_extension["post"];
+    }
+
+    static generate_round() {
+        this.is_asem_question_possible = ~~(Math.random*2);
+        this.list = Object.keys(this.dict);
+        super.generate_round();
+    }
+
+}
+
 class Anul extends TemaKor {
     static dummy = TemaKor.derived.push(this);
     static enabled = true;
@@ -125,33 +184,51 @@ class Anul extends TemaKor {
     static list = opere;
     static mixable = false;
     static possibles = {
-        "titlu": {"pre": 'Anul apariției operei "', post:'"?'},
-        "anul": {"pre": "Operă apărut în ", post:"?"}, 
+        "titlu": {"pre": 'Anul apariției operei "', "post":'"?'},
+        "anul": {"pre": "Operă apărută în ", "post":"?"}, 
     }
 }
 
-class Curente extends TemaKor {
+// class NotMixableTemaKor extends TemaKor{
+
+// }
+
+
+class AnulAutor extends TemaKor {
     static dummy = TemaKor.derived.push(this);
     static enabled = true;
 
     static list = opere;
     static mixable = false;
     static possibles = {
-        "titlu": {"pre": 'Curentul literar operei "', post:'"?'},
-        "curent": {"pre": "Operă care se încadrează în ", post:"?"}, 
+        "artist": {"pre": 'Apariția operei scrisă de ', "post":'?'},
+        "anul": {"pre": "Autorul operei apărută în ", "post":"?"}, 
     }
 }
 
-class Perioade extends TemaKor {
+class Curente extends AsemTemaKor {
     static dummy = TemaKor.derived.push(this);
     static enabled = true;
 
-    static list = opere;
+    static dict = opere_curente;
     static mixable = false;
     static possibles = {
-        "titlu": {"pre": 'Perioada operei "', post:'"?'},
-        "perioada": {"pre": "Operă care se încadrează în ", post:"?"}, 
+        "titlu": {"pre": 'Curentul literar a operei "', "post":'"?'},
     }
+    static asem_possible_extensions = {"pre": "Operă care se încadrează în ", "post":"?"}
+}
+
+class Perioade extends AsemTemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static dict = opere_perioade;
+    static mixable = false;
+    static possibles = {
+        "titlu": {"pre": 'Perioada operei "', "post":'"?'},
+    }
+
+    static asem_possible_extensions = {"pre": "Operă care se încadrează în ", "post":"?"}
 }
 
 class Artiste extends TemaKor {
@@ -161,8 +238,8 @@ class Artiste extends TemaKor {
     static list = opere;
     static mixable = false;
     static possibles = {
-        "titlu": {"pre": 'Autorul operei "', post:'"?'},
-        "artist": {"pre": "Operă scrisă de ", post:"?"}, 
+        "titlu": {"pre": 'Autorul operei "', "post":'"?'},
+        "artist": {"pre": "Operă scrisă de ", "post":"?"}, 
     }
 }
 
@@ -220,7 +297,7 @@ class GameOptions {
 
     set corect(new_value){
         this._corect = new_value;
-        if (this.__corect_dom__) this.__corect_dom__.textContent = "răspunsuri corecte: " + this._corect;
+        if (this.__corect_dom__) this.__corect_dom__.textContent = "corecte: " + this._corect;
     }
 
     get incorect(){
@@ -229,7 +306,7 @@ class GameOptions {
 
     set incorect(new_value){
         this._incorect = new_value;
-        if (this.__incorect_dom__) this.__incorect_dom__.textContent = "răspunsuri incorecte: " + this._incorect;
+        if (this.__incorect_dom__) this.__incorect_dom__.textContent = "greșite: " + this._incorect;
     }
 
     bind(){
@@ -320,6 +397,11 @@ window.addEventListener("load", ()=>{
     let option_dom = document.getElementById("optiuni");
     Array.from(option_dom.children).forEach((label)=>{
         input_dom = label.children[0];
-        if (input_dom?.type=="checkbox") input_dom.checked=true;
+        if (input_dom?.type=="checkbox") input_dom.checked=false;
     })
+    document.getElementById("curent-option").checked=true
+    TemaKor.derived.forEach((kor)=>{
+        kor.enabled = false;
+    })
+    Curente.enabled = true;
 });
