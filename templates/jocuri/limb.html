@@ -7,7 +7,7 @@
 
 {% block content %}
     <button id="start-button" onclick="on_start()">Start</button>
-    <div id="game" style="display: none;">
+    <div id="game" class="unselectable" style="display: none;">
         <stats>
             <h5 id="punctaj">punctaj: 0</h5>
             <h5 id="timer"></h5>
@@ -20,10 +20,10 @@
                 
             </div>
         </game-components>
-        <button onclick="new_word()">skip</button>
+        <button onclick="TemaKor.generate_random_round()">skip</button>
     </div>
     
-    <div id="optiuni">
+    <div id="optiuni" class="unselectable">
         <label for="teme">teme: 
             <input type="checkbox" id="sentimente-option" name="teme-option" value="show">
         </label>

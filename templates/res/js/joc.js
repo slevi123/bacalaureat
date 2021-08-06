@@ -5,56 +5,115 @@ fizice = {{fizice|safe}}
 
 
 class TemaKor {
-    constructor(){
-        this.list = fizice;
-        this.question = "";
-        this.possibles = {
-            "nev": {"pre": "Ce înseamnă: ", post:"?"},
-            "nume": {"pre": "Mit jelent: ", post:"?"},
+    static derived = [];
 
-        }
-        this.question_possible = "";
-        this.answer_possible = "";
+    // static 
+    static list = [];
+    // static mixable = true;
+    // static possibles = {}
+
+    static question = "";
+    static question_possible = "";
+    static answer_possible = "";
+
+    // static list = fizice;
+    static mixable = true;
+    static possibles = {
+        "nev": {"pre": "Ce înseamnă: ", post:"?"},
+        "nume": {"pre": "Mit jelent: ", post:"?"}, 
     }
 
-    get question_extension(){
+    // static register(){
+    //     this.derived.push(this);
+    // }
+
+    static get question_extension(){
+        console.log(this.question_possible)
+        console.log(this.possibles[this.question_possible])
         return this.possibles[this.question_possible];
     }
 
-    answer_form(answer){
+    static answer_form(answer){
         return answer[this.answer_possible];
     }
 
-    get question_formula(){
+    // draw_tematica
+
+    static get question_formula(){
         return this.question_extension["pre"] + this.question[this.question_possible] + this.question_extension["post"];
     }
 
-    generate_round(question) {
+    static generate_random_round(){
+        console.log(this.derived, this)
+        return ranlist(this.derived).new_word();
+    }
+
+    static generate_round() {
+        let keys  = Object.keys(this.possibles);
         this.question =  ranlist(this.list);
-        this.question_possible = ranlist(this.possibles.keys());
+        this.question_possible = ranlist(keys);
+        console.log("after_creation: ", this.question_possible)
+        game_options.answer_id = ~~(Math.random() * Math.min(game_options.answer_count, this.list.length))
+
         do{
-            this.answer_possible = ranlist(this.possibles.keys());
+            this.answer_possible = ranlist(keys);
         } while (this.answer_possible==this.question_possible);
 
-        let answers = [];
+        this.answers = [];
         let temp_option = undefined;
-        if (this.list.length > game_options.answer_count){
-            for (let i=0; i<game_options.answer_count; i++){
-                if (i==game_options.answer_id){
-                    answers.push(question);
-                } else{
-                    do{
-                        temp_option = ranlist(this.list);
-                    } while(answers.includes(temp_option) || question==temp_option);
-                    answers.push(temp_option);
-                }
+
+        for (let i=0; i<game_options.answer_count; i++){
+            if (i >= this.list.length) break;
+            if (i==game_options.answer_id){
+                this.answers.push(this.question);
+            } else{
+                do{
+                    temp_option = ranlist(this.list);
+                } while(this.answers.includes(temp_option) || this.question==temp_option);
+                this.answers.push(temp_option);
             }
-        } else {
-            answers = this.list; 
         }
-        return answers;
+        console.log("round generated");
+    }
+
+    static new_word(){
+        let question_dom = document.getElementById("question");
+        let answer_doms = document.getElementById("answer-options");
+    
+        // let answer_id = 3
+        this.generate_round()
+        question_dom.textContent = this.question_formula;
+        // console.log(answers)
+        remove_children(answer_doms)
+        for (let i=0; i<game_options.answer_count; i++){
+            if (!this.answers[i]) break;
+            add_answer_child(answer_doms, this.answer_form(this.answers[i]), i);
+        }
     }
 }
+
+class Sentimente extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+
+    static list = sentimente;
+}
+class Morale extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+
+    static list = morale;
+}
+class Fizice extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+
+    static list = fizice;
+}
+class Teme extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+
+    static list = teme;
+}
+
+
 
 class GameOptions {
     constructor(){
@@ -88,6 +147,7 @@ class GameOptions {
 let game_options = new GameOptions()
 
 function ranlist(list){
+    // console.log(list)
     return list[~~(Math.random() * list.length)];
 }
 
@@ -123,7 +183,7 @@ function on_start(){
         timp += 1;
         setTime(timer_dom, timp);
     }, 1000);
-    new_word();
+    TemaKor.generate_random_round();
 }
 
 function evaluate_solution(user_answer_id){
@@ -138,7 +198,7 @@ function evaluate_solution(user_answer_id){
         if (count==game_options.answer_id) answer_dom.style.border="3px solid green";        
     })
 
-    window.setTimeout( new_word, 2000);
+    window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
 }
 
 function add_answer_child(parent, content, answer_count){
@@ -150,38 +210,6 @@ function add_answer_child(parent, content, answer_count){
 }
 
 
-function new_word(){
-    let question_dom = document.getElementById("question")
-    let answer_doms = document.getElementById("answer-options")
 
-    let question = ranlist(teme);
-    game_options.answer_id = ~~(Math.random() * game_options.answer_count)
-    // let answer_id = 3
-    let answers = [];
-    let temp_option = undefined;
-    if (teme.length > game_options.answer_count){
-        for (let i=0; i<game_options.answer_count; i++){
-            if (i==game_options.answer_id){
-                answers.push(question);
-            } else{
-                do{
-                    temp_option = ranlist(teme);
-                } while(answers.includes(temp_option) || question==temp_option);
-                answers.push(temp_option);
-            }
-        }
-    } else {
-        answers = teme;
-        
-    }
-
-    question_dom.textContent = question.nev;
-
-    remove_children(answer_doms)
-    for (let i=0; i<game_options.answer_count; i++){
-        if (!answers[i]) break;
-        add_answer_child(answer_doms, answers[i].nume, i);
-    }
-}
 
 // window.addEventListener("load", );

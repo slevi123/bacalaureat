@@ -1,20 +1,119 @@
 teme = [{"nev": "természet", "nume": "natură"}, {"nev": "emberi élet", "nume": "viață omului"}, {"nev": "születés", "nume": "naștere"}, {"nev": "szerelem, szeretet", "nume": "iubire"}, {"nev": "nevelés", "nume": "educație"}, {"nev": "öregkor", "nume": "bătrânețe"}, {"nev": "halál", "nume": "moarte"}, {"nev": "emberi sors", "nume": "destin uman"}, {"nev": "vallás", "nume": "religie"}, {"nev": "hit", "nume": "credință"}, {"nev": "művészet", "nume": "artă"}, {"nev": "kultúra", "nume": "cultură"}, {"nev": "idő", "nume": "timp"}, {"nev": "haza", "nume": "patrie"}, {"nev": "művészi alkotás", "nume": "creație artistică"}]
-sentimente = [{"nev": "boldogság", "nume": "fericire"}, {"nev": "vidámság", "nume": "veselie"}, {"nev": "öröm", "nume": "bucurie"}, {"nev": "szerelem, szeretet", "nume": "dragoste"}, {"nev": "vágy", "nume": "dor"}, {"nev": "vágyakozás", "nume": "dorință"}, {"nev": "halál", "nume": "tristețea"}, {"nev": "sajnálat", "nume": "părerea de rău"}, {"nev": "lelki fájdalom", "nume": "durere sufletească"}, {"nev": "szenvedés", "nume": "suferință"}, {"nev": "melankólia", "nume": "melancolie"}, {"nev": "nosztalgia", "nume": "nostalgie"}, {"nev": "depresszió", "nume": "depresie"}, {"nev": "létfélelem", "nume": "spaimă existențială"}, {"nev": "harag", "nume": "supărarea"}, {"nev": "gyász", "nume": "jale"}, {"nev": "magány", "nume": "singurătate"}, {"nev": "szenvedély", "nume": "pasiune"}, {"nev": "gyűlölet", "nume": "ură"}, {"nev": "irigység", "nume": "gelozie"}]
+sentimente = [{"nev": "boldogság", "nume": "fericire"}, {"nev": "vidámság", "nume": "veselie"}, {"nev": "öröm", "nume": "bucurie"}, {"nev": "szerelem, szeretet", "nume": "dragoste"}, {"nev": "vágy", "nume": "dor"}, {"nev": "vágyakozás", "nume": "dorință"}, {"nev": "halál", "nume": "tristețea"}, {"nev": "sajnálat", "nume": "părerea de rău"}, {"nev": "lelki fájdalom", "nume": "durere sufletească"}, {"nev": "szenvedés", "nume": "suferință"}, {"nev": "melankólia", "nume": "melancolie"}, {"nev": "nosztalgia", "nume": "nostalgie"}, {"nev": "depresszió", "nume": "depresie"}, {"nev": "létfélelem", "nume": "spaimă existențială"}, {"nev": "harag", "nume": "supărarea"}, {"nev": "gyász", "nume": "jale"}, {"nev": "magány", "nume": "singurătate"}, {"nev": "szenvedély", "nume": "pasiune"}, {"nev": "gyűlölet", "nume": "ură"}, {"nev": "irigység", "nume": "gelozie"}, {"nev": "szomorúság", "nume": "tristețe"}]
 morale = [{"nev": "jó", "nume": "bun"}, {"nev": "rossz", "nume": "rău"}, {"nev": "okos", "nume": "deștept"}, {"nev": "szerető", "nume": "iubitor"}, {"nev": "tapintatos", "nume": "amabil"}, {"nev": "idétlen", "nume": "urâcios"}]
 fizice = [{"nev": "magas", "nume": "înalt"}, {"nev": "gyenge", "nume": "slab"}, {"nev": "rövid", "nume": "scund"}, {"nev": "kövér", "nume": "gras"}, {"nev": "szőke", "nume": "blond"}, {"nev": "göndör", "nume": "creț"}, {"nev": "barna", "nume": "saten"}]
 
 
 class TemaKor {
-    constructor(){
-        this.list = [];
+    static derived = [];
+
+    // static 
+    static list = [];
+    // static mixable = true;
+    // static possibles = {}
+
+    static question = "";
+    static question_possible = "";
+    static answer_possible = "";
+
+    // static list = fizice;
+    static mixable = true;
+    static possibles = {
+        "nev": {"pre": "Ce înseamnă: ", post:"?"},
+        "nume": {"pre": "Mit jelent: ", post:"?"}, 
     }
 
-    get question(){
-        return ranlist(this.list);
+    // static register(){
+    //     this.derived.push(this);
+    // }
+
+    static get question_extension(){
+        console.log(this.question_possible)
+        console.log(this.possibles[this.question_possible])
+        return this.possibles[this.question_possible];
     }
 
+    static answer_form(answer){
+        return answer[this.answer_possible];
+    }
+
+    // draw_tematica
+
+    static get question_formula(){
+        return this.question_extension["pre"] + this.question[this.question_possible] + this.question_extension["post"];
+    }
+
+    static generate_random_round(){
+        console.log(this.derived, this)
+        return ranlist(this.derived).new_word();
+    }
+
+    static generate_round() {
+        let keys  = Object.keys(this.possibles);
+        this.question =  ranlist(this.list);
+        this.question_possible = ranlist(keys);
+        console.log("after_creation: ", this.question_possible)
+        game_options.answer_id = ~~(Math.random() * Math.min(game_options.answer_count, this.list.length))
+
+        do{
+            this.answer_possible = ranlist(keys);
+        } while (this.answer_possible==this.question_possible);
+
+        this.answers = [];
+        let temp_option = undefined;
+
+        for (let i=0; i<game_options.answer_count; i++){
+            if (i >= this.list.length) break;
+            if (i==game_options.answer_id){
+                this.answers.push(this.question);
+            } else{
+                do{
+                    temp_option = ranlist(this.list);
+                } while(this.answers.includes(temp_option) || this.question==temp_option);
+                this.answers.push(temp_option);
+            }
+        }
+        console.log("round generated");
+    }
+
+    static new_word(){
+        let question_dom = document.getElementById("question");
+        let answer_doms = document.getElementById("answer-options");
     
+        // let answer_id = 3
+        this.generate_round()
+        question_dom.textContent = this.question_formula;
+        // console.log(answers)
+        remove_children(answer_doms)
+        for (let i=0; i<game_options.answer_count; i++){
+            if (!this.answers[i]) break;
+            add_answer_child(answer_doms, this.answer_form(this.answers[i]), i);
+        }
+    }
 }
+
+class Sentimente extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+
+    static list = sentimente;
+}
+class Morale extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+
+    static list = morale;
+}
+class Fizice extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+
+    static list = fizice;
+}
+class Teme extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+
+    static list = teme;
+}
+
+
 
 class GameOptions {
     constructor(){
@@ -48,6 +147,7 @@ class GameOptions {
 let game_options = new GameOptions()
 
 function ranlist(list){
+    // console.log(list)
     return list[~~(Math.random() * list.length)];
 }
 
@@ -83,7 +183,7 @@ function on_start(){
         timp += 1;
         setTime(timer_dom, timp);
     }, 1000);
-    new_word();
+    TemaKor.generate_random_round();
 }
 
 function evaluate_solution(user_answer_id){
@@ -98,7 +198,7 @@ function evaluate_solution(user_answer_id){
         if (count==game_options.answer_id) answer_dom.style.border="3px solid green";        
     })
 
-    window.setTimeout( new_word, 2000);
+    window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
 }
 
 function add_answer_child(parent, content, answer_count){
@@ -110,38 +210,6 @@ function add_answer_child(parent, content, answer_count){
 }
 
 
-function new_word(){
-    let question_dom = document.getElementById("question")
-    let answer_doms = document.getElementById("answer-options")
 
-    let question = ranlist(teme);
-    game_options.answer_id = ~~(Math.random() * game_options.answer_count)
-    // let answer_id = 3
-    let answers = [];
-    let temp_option = undefined;
-    if (teme.length > game_options.answer_count){
-        for (let i=0; i<game_options.answer_count; i++){
-            if (i==game_options.answer_id){
-                answers.push(question);
-            } else{
-                do{
-                    temp_option = ranlist(teme);
-                } while(answers.includes(temp_option) || question==temp_option);
-                answers.push(temp_option);
-            }
-        }
-    } else {
-        answers = teme;
-        
-    }
-
-    question_dom.textContent = question.nev;
-
-    remove_children(answer_doms)
-    for (let i=0; i<game_options.answer_count; i++){
-        if (!answers[i]) break;
-        add_answer_child(answer_doms, answers[i].nume, i);
-    }
-}
 
 // window.addEventListener("load", );
