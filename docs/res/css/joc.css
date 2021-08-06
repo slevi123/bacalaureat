@@ -1,3 +1,13 @@
+label{
+    margin-top: 10px;
+}
+
+.tab-padding{
+    padding-left: 15px;
+    margin-top: 4px;
+}
+
+
 #question{
     /* color: tomato; */
     background: rgb(204, 231, 163);
@@ -50,4 +60,6 @@
     font-size: 17px;
     cursor: pointer;
 }
+
+
 

@@ -6,10 +6,14 @@ fizice = [{"nev": "magas", "nume": "înalt"}, {"nev": "gyenge", "nume": "slab"},
 
 class TemaKor {
     constructor(){
-        this.list = []
+        this.list = [];
     }
 
+    get question(){
+        return ranlist(this.list);
+    }
 
+    
 }
 
 class GameOptions {

@@ -6,10 +6,54 @@ fizice = {{fizice|safe}}
 
 class TemaKor {
     constructor(){
-        this.list = []
+        this.list = fizice;
+        this.question = "";
+        this.possibles = {
+            "nev": {"pre": "Ce înseamnă: ", post:"?"},
+            "nume": {"pre": "Mit jelent: ", post:"?"},
+
+        }
+        this.question_possible = "";
+        this.answer_possible = "";
     }
 
+    get question_extension(){
+        return this.possibles[this.question_possible];
+    }
 
+    answer_form(answer){
+        return answer[this.answer_possible];
+    }
+
+    get question_formula(){
+        return this.question_extension["pre"] + this.question[this.question_possible] + this.question_extension["post"];
+    }
+
+    generate_round(question) {
+        this.question =  ranlist(this.list);
+        this.question_possible = ranlist(this.possibles.keys());
+        do{
+            this.answer_possible = ranlist(this.possibles.keys());
+        } while (this.answer_possible==this.question_possible);
+
+        let answers = [];
+        let temp_option = undefined;
+        if (this.list.length > game_options.answer_count){
+            for (let i=0; i<game_options.answer_count; i++){
+                if (i==game_options.answer_id){
+                    answers.push(question);
+                } else{
+                    do{
+                        temp_option = ranlist(this.list);
+                    } while(answers.includes(temp_option) || question==temp_option);
+                    answers.push(temp_option);
+                }
+            }
+        } else {
+            answers = this.list; 
+        }
+        return answers;
+    }
 }
 
 class GameOptions {
