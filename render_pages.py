@@ -38,7 +38,7 @@ def render():
         opere_epice = pny.select(opera for opera in OperaEpica)
         process("opere_epice.html", context={"opere" : opere_epice})
         process("index.html")
-        opere = pny.select(opera for opera in Opera)
+        opere = pny.select(opera for opera in Opera).sort_by(Opera.anul)
         process("opere.html", context={"opere": opere})
         teme = pny.select(tema for tema in Tema)
         process("teme.html", context={"teme": teme})

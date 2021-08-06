@@ -1,5 +1,6 @@
 Játék:
 * beírós opció
+* sinonime, one-way structures
 * megyező tulajdonságok
 * üress tulajdonságok
 * pontozási rendszer

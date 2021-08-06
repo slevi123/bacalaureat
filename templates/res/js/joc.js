@@ -125,8 +125,8 @@ class Anul extends TemaKor {
     static list = opere;
     static mixable = false;
     static possibles = {
-        "titlu": {"pre": 'Anul publicării operei "', post:'"?'},
-        "anul": {"pre": "Operă publicat în ", post:"?"}, 
+        "titlu": {"pre": 'Anul apariției operei "', post:'"?'},
+        "anul": {"pre": "Operă apărut în ", post:"?"}, 
     }
 }
 
@@ -201,6 +201,8 @@ class GameOptions {
         this._punctaj = 0;
 
         this.__punctaj_dom__ = undefined;
+        this.__corect_dom__ = undefined;
+        this.__incorect_dom__ = undefined;
     }
 
     get punctaj(){
@@ -212,8 +214,30 @@ class GameOptions {
         if (this.__punctaj_dom__) this.__punctaj_dom__.textContent = "punctaj: " + this._punctaj;
     }
 
+    get corect(){
+        return this._corect;
+    }
+
+    set corect(new_value){
+        this._corect = new_value;
+        if (this.__corect_dom__) this.__corect_dom__.textContent = "răspunsuri corecte: " + this._corect;
+    }
+
+    get incorect(){
+        return this._incorect;
+    }
+
+    set incorect(new_value){
+        this._incorect = new_value;
+        if (this.__incorect_dom__) this.__incorect_dom__.textContent = "răspunsuri incorecte: " + this._incorect;
+    }
+
     bind(){
         this.__punctaj_dom__ = document.getElementById("punctaj");
+        this.__corect_dom__ = document.getElementById("raspuns-corect");
+        this.__incorect_dom__ = document.getElementById("raspuns-incorect");
+        this.corect = 0;
+        this.incorect = 0;
 
         let answer_num_dom = document.getElementById("answer-num-option");
         this.answer_count = answer_num_dom.value;
@@ -268,7 +292,8 @@ function on_start(){
 function evaluate_solution(user_answer_id){
     if (game_options.answer_id==user_answer_id){
         game_options.punctaj +=1;
-    }
+        game_options.corect +=1;
+    } else game_options.incorect +=1;
 
     answer_doms = document.getElementById("answer-options").children
     Array.from(answer_doms).forEach((answer_dom)=>{

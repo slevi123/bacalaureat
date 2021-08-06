@@ -29,8 +29,14 @@
     <button id="start-button" onclick="on_start()">Start</button>
     <div id="game" class="unselectable" style="display: none;">
         <stats>
-            <h5 id="punctaj">punctaj: 0</h5>
-            <h5 id="timer"></h5>
+            <div>
+                <h5 id="punctaj">punctaj: 0</h5>
+                <h5 id="timer"></h5>
+            </div>
+            <div>
+                <g><p id="raspuns-corect"></p></g>
+                <r><p id="raspuns-incorect"></p></r>
+            </div>
         </stats>
         <game-components>
             <p id="question">

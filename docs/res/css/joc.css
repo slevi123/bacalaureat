@@ -2,6 +2,13 @@ label{
     margin-top: 10px;
 }
 
+stats{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .tab-padding{
     padding-left: 15px;
     margin-top: 4px;

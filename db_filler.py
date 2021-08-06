@@ -35,7 +35,8 @@ def add_data():
             {"nume": "modernism"},
             {"nume": "romantism"},
             {"nume": "romantic realism"},
-            {"nume": "realism"}
+            {"nume": "realism"},
+            {"nume": "modernism, realism"}
             
             ]
     add_update_rows(CurentLiterar, "nume", curente_list)
@@ -165,6 +166,15 @@ def add_data():
         {"titlu": "Povestea lui Harap-Alb", "artist": "Ion Creangă", "curent": CurentLiterar.cu_nume("romantic realism"), "gen": Gen.e("epic"), "anul": 1877, "tema": Atribut(scurt="maturizarea"), "semnificatia_titlului": Atribut(scurt="numele personajului principal"),
             "perioada": "Epoca marilor clasici", "specie": "basm cult", "revista": "Convorbiri literare",
             "linkuri": "psihotrop,https://youtu.be/t0BvXdPksi4"},
+        {"titlu": "Enigma Otiliei", "artist": "George Călinescu", "curent": CurentLiterar.cu_nume("modernism, realism"), "gen": Gen.e("epic"), "anul": 1938, "tema": Atribut(scurt="iubirea, averea, moștenirea și viața socială"), "semnificatia_titlului": Atribut(scurt="misterul, simbolizează feminin etern"),
+            "perioada": "interbelică", "specie": "roman modern, realist obiectiv", "revista": "",
+            "linkuri": "psihotrop,https://youtu.be/v9QgsU1FM2s"},
+        {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "artist": "Camil Petrescu", "curent": CurentLiterar.cu_nume("modernism"), "gen": Gen.e("epic"), "anul": 1930, "tema": Atribut(scurt="iubirea și războiul"), "semnificatia_titlului": Atribut(scurt="două nopți"),
+            "perioada": "interbelică", "specie": "roman psihologic, modern subiectiv", "revista": "",
+            "linkuri": "psihotrop,https://youtu.be/1h8p0W_9cns"},
+        {"titlu": "Moara cu noroc", "artist": "Ioan Slavici", "curent": CurentLiterar.cu_nume("realism"), "gen": Gen.e("epic"), "anul": 1881, "tema": Atribut(scurt="averea, familia, iubirea"), "semnificatia_titlului": Atribut(scurt="locul acțiunii, oximoron simbolic"),
+            "perioada": "interbelică", "specie": "nuvelă psihologică și realistă", "revista": "",
+            "linkuri": "psihotrop,https://youtu.be/Vq3VaFsOtCU"},
     ]
 
     add_update_rows(OperaEpica, "titlu", opere_epice_list)

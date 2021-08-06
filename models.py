@@ -6,7 +6,7 @@ import pony.orm as pny
 from pony.orm.core import Required
 
 database = pny.Database("sqlite",
-                        "test49.sqlite",
+                        "test50.sqlite",
                         create_db=True)
 
 class Gen(database.Entity):

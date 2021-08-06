@@ -1,8 +1,8 @@
 teme = [{"nev": "természet", "nume": "natură"}, {"nev": "emberi élet", "nume": "viață omului"}, {"nev": "születés", "nume": "naștere"}, {"nev": "szerelem, szeretet", "nume": "iubire"}, {"nev": "nevelés", "nume": "educație"}, {"nev": "öregkor", "nume": "bătrânețe"}, {"nev": "halál", "nume": "moarte"}, {"nev": "emberi sors", "nume": "destin uman"}, {"nev": "vallás", "nume": "religie"}, {"nev": "hit", "nume": "credință"}, {"nev": "művészet", "nume": "artă"}, {"nev": "kultúra", "nume": "cultură"}, {"nev": "idő", "nume": "timp"}, {"nev": "haza", "nume": "patrie"}, {"nev": "művészi alkotás", "nume": "creație artistică"}]
-sentimente = [{"nev": "boldogság", "nume": "fericire"}, {"nev": "vidámság", "nume": "veselie"}, {"nev": "öröm", "nume": "bucurie"}, {"nev": "szerelem, szeretet", "nume": "dragoste"}, {"nev": "vágy", "nume": "dor"}, {"nev": "vágyakozás", "nume": "dorință"}, {"nev": "halál", "nume": "tristețea"}, {"nev": "sajnálat", "nume": "părerea de rău"}, {"nev": "lelki fájdalom", "nume": "durere sufletească"}, {"nev": "szenvedés", "nume": "suferință"}, {"nev": "melankólia", "nume": "melancolie"}, {"nev": "nosztalgia", "nume": "nostalgie"}, {"nev": "depresszió", "nume": "depresie"}, {"nev": "létfélelem", "nume": "spaimă existențială"}, {"nev": "harag", "nume": "supărarea"}, {"nev": "gyász", "nume": "jale"}, {"nev": "magány", "nume": "singurătate"}, {"nev": "szenvedély", "nume": "pasiune"}, {"nev": "gyűlölet", "nume": "ură"}, {"nev": "irigység", "nume": "gelozie"}, {"nev": "szomorúság", "nume": "tristețe"}]
+sentimente = [{"nev": "boldogság", "nume": "fericire"}, {"nev": "vidámság", "nume": "veselie"}, {"nev": "öröm", "nume": "bucurie"}, {"nev": "szerelem, szeretet", "nume": "dragoste"}, {"nev": "vágy", "nume": "dor"}, {"nev": "vágyakozás", "nume": "dorință"}, {"nev": "szomorúság", "nume": "tristețe"}, {"nev": "sajnálat", "nume": "părerea de rău"}, {"nev": "lelki fájdalom", "nume": "durere sufletească"}, {"nev": "szenvedés", "nume": "suferință"}, {"nev": "melankólia", "nume": "melancolie"}, {"nev": "nosztalgia", "nume": "nostalgie"}, {"nev": "depresszió", "nume": "depresie"}, {"nev": "létfélelem", "nume": "spaimă existențială"}, {"nev": "harag", "nume": "supărare"}, {"nev": "gyász", "nume": "jale"}, {"nev": "magány", "nume": "singurătate"}, {"nev": "szenvedély", "nume": "pasiune"}, {"nev": "gyűlölet", "nume": "ură"}, {"nev": "irigység", "nume": "gelozie"}]
 morale = [{"nev": "jó", "nume": "bun"}, {"nev": "rossz", "nume": "rău"}, {"nev": "okos", "nume": "deștept"}, {"nev": "szerető", "nume": "iubitor"}, {"nev": "tapintatos", "nume": "amabil"}, {"nev": "idétlen", "nume": "urâcios"}]
 fizice = [{"nev": "magas", "nume": "înalt"}, {"nev": "gyenge", "nume": "slab"}, {"nev": "rövid", "nume": "scund"}, {"nev": "kövér", "nume": "gras"}, {"nev": "szőke", "nume": "blond"}, {"nev": "göndör", "nume": "creț"}, {"nev": "barna", "nume": "saten"}]
-opere = [{"titlu": "Plumb", "anul": 1916, "curent": "simbolism", "artist": "George Bacovia", "perioada": "antebelică"}, {"titlu": "Sara pe deal", "anul": 1885, "curent": "romantism", "artist": "Mihai Eminescu", "perioada": "Epoca Marilor Clasici"}, {"titlu": "Flori de mucigai", "anul": 1931, "curent": "modernism", "artist": "Tudor Arghezi", "perioada": "interbelică"}, {"titlu": "Povestea lui Harap-Alb", "anul": 1877, "curent": "romantic realism", "artist": "Ion Creangă", "perioada": "Epoca marilor clasici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "curent": "realism", "artist": "Ion Luca Caragiale", "perioada": "Epoca marilor clasici"}]
+opere = [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "curent": "romantic realism", "artist": "Ion Creangă", "perioada": "Epoca marilor clasici"}, {"titlu": "Moara cu noroc", "anul": 1881, "curent": "realism", "artist": "Ioan Slavici", "perioada": "interbelică"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "curent": "realism", "artist": "Ion Luca Caragiale", "perioada": "Epoca marilor clasici"}, {"titlu": "Sara pe deal", "anul": 1885, "curent": "romantism", "artist": "Mihai Eminescu", "perioada": "Epoca Marilor Clasici"}, {"titlu": "Plumb", "anul": 1916, "curent": "simbolism", "artist": "George Bacovia", "perioada": "antebelică"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "curent": "modernism", "artist": "Camil Petrescu", "perioada": "interbelică"}, {"titlu": "Flori de mucigai", "anul": 1931, "curent": "modernism", "artist": "Tudor Arghezi", "perioada": "interbelică"}, {"titlu": "Enigma Otiliei", "anul": 1938, "curent": "modernism, realism", "artist": "George Călinescu", "perioada": "interbelică"}]
 
 function children_enabler(checkbox, children_ids){
     children_ids.forEach((child_id)=>{
@@ -125,8 +125,8 @@ class Anul extends TemaKor {
     static list = opere;
     static mixable = false;
     static possibles = {
-        "titlu": {"pre": 'Anul publicării operei "', post:'"?'},
-        "anul": {"pre": "Operă publicat în ", post:"?"}, 
+        "titlu": {"pre": 'Anul apariției operei "', post:'"?'},
+        "anul": {"pre": "Operă apărut în ", post:"?"}, 
     }
 }
 
@@ -162,7 +162,7 @@ class Artiste extends TemaKor {
     static mixable = false;
     static possibles = {
         "titlu": {"pre": 'Autorul operei "', post:'"?'},
-        "artist": {"pre": "Opera scrisă de ", post:"?"}, 
+        "artist": {"pre": "Operă scrisă de ", post:"?"}, 
     }
 }
 
@@ -201,6 +201,8 @@ class GameOptions {
         this._punctaj = 0;
 
         this.__punctaj_dom__ = undefined;
+        this.__corect_dom__ = undefined;
+        this.__incorect_dom__ = undefined;
     }
 
     get punctaj(){
@@ -212,8 +214,30 @@ class GameOptions {
         if (this.__punctaj_dom__) this.__punctaj_dom__.textContent = "punctaj: " + this._punctaj;
     }
 
+    get corect(){
+        return this._corect;
+    }
+
+    set corect(new_value){
+        this._corect = new_value;
+        if (this.__corect_dom__) this.__corect_dom__.textContent = "răspunsuri corecte: " + this._corect;
+    }
+
+    get incorect(){
+        return this._incorect;
+    }
+
+    set incorect(new_value){
+        this._incorect = new_value;
+        if (this.__incorect_dom__) this.__incorect_dom__.textContent = "răspunsuri incorecte: " + this._incorect;
+    }
+
     bind(){
         this.__punctaj_dom__ = document.getElementById("punctaj");
+        this.__corect_dom__ = document.getElementById("raspuns-corect");
+        this.__incorect_dom__ = document.getElementById("raspuns-incorect");
+        this.corect = 0;
+        this.incorect = 0;
 
         let answer_num_dom = document.getElementById("answer-num-option");
         this.answer_count = answer_num_dom.value;
@@ -268,7 +292,8 @@ function on_start(){
 function evaluate_solution(user_answer_id){
     if (game_options.answer_id==user_answer_id){
         game_options.punctaj +=1;
-    }
+        game_options.corect +=1;
+    } else game_options.incorect +=1;
 
     answer_doms = document.getElementById("answer-options").children
     Array.from(answer_doms).forEach((answer_dom)=>{
