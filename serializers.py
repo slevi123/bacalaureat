@@ -17,6 +17,9 @@ class SimpleSerializer:
 class NevNumeSerializer(SimpleSerializer):
     include = ["nev", "nume"]
 
+class OperaSerializer(SimpleSerializer):
+    include = ["titlu", "anul", "curent", "artist", "perioada"]
+
 
 # def simple_query_serializer(query):
 #     pythonic = list(map(lambda instance:instance.to_dict(), query))
