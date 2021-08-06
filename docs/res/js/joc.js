@@ -397,11 +397,11 @@ window.addEventListener("load", ()=>{
     let option_dom = document.getElementById("optiuni");
     Array.from(option_dom.children).forEach((label)=>{
         input_dom = label.children[0];
-        if (input_dom?.type=="checkbox") input_dom.checked=false;
+        if (input_dom?.type=="checkbox") input_dom.checked=true;
     })
-    document.getElementById("curent-option").checked=true
-    TemaKor.derived.forEach((kor)=>{
-        kor.enabled = false;
-    })
-    Curente.enabled = true;
+    // document.getElementById("curent-option").checked=true
+    // TemaKor.derived.forEach((kor)=>{
+    //     kor.enabled = false;
+    // })
+    // Curente.enabled = true;
 });

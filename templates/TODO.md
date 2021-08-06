@@ -1,12 +1,12 @@
 Játék:
 * beírós opció
 * sinonime, one-way structures
-* megyező tulajdonságok
-* üress tulajdonságok
+* üres tulajdonságok
 * pontozási rendszer
 * kategóriák vegyítése
-* jv- design újratervezése (good-practice megtanulása és felhasználása)
+* js- design újratervezése (good-practice megtanulása és felhasználása)
 * opciók összecsukhatósága
 * autó-opció vezérlés
 * simbolism-modernism
 * többes számú szavak!, megfeleltetés
+* csak magyarról/ csak románról módok

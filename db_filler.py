@@ -80,7 +80,7 @@ def add_data():
         {"nume": "dor", "nev": "vágy"},
         {"nume": "dorință", "nev": "vágyakozás"},
         {"nume": "tristețe", "nev": "szomorúság", "mood": "negativ"},
-        {"nume": "părerea de rău", "nev": "sajnálat", "mood": "negativ"},
+        {"nume": "părere de rău", "nev": "sajnálat", "mood": "negativ"},
         {"nume": "durere sufletească", "nev": "lelki fájdalom", "mood": "negativ"},
         {"nume": "suferință", "nev": "szenvedés", "mood": "negativ"},
         {"nume": "melancolie", "nev": "melankólia"},
