@@ -182,17 +182,31 @@ trans:hover{
     text-align: center;
 }
 
+/* next lines: from the internet for responsive tables */
+
+table tr {
+    /* border: 1px solid #ddd; */
+    padding: 5px;
+    /* background: #fff; */
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: center;
+  }
+
 @media screen and (max-width: 600px) {
 
-    #card table {
+    .card {
        border: 0;
      }
  
-    #card table thead {
+    .card thead {
        display: none;
      }
  
-    #card table tr {
+    .card tr {
        margin-bottom: 20px;
        display: block;
        border-bottom: 2px solid #ddd;
@@ -200,24 +214,24 @@ trans:hover{
  
      }
  
-    #card table td {
+    .card td {
        display: block;
        text-align: right;
        font-size: 13px;
      }
  
-    #card table td:last-child {
+    .card td:last-child {
        border-bottom: 0;
      }
  
-    #card table td::before {
+    .card td::before {
        content: attr(data-label);
        float: left;
        text-transform: uppercase;
        font-weight: bold;
      }
-         #card	tbody{
-             line-height:0!important;
-         }
+        .card tbody{
+            line-height:0!important;
+        }
  
    }
