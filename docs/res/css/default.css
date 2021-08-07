@@ -181,3 +181,43 @@ trans:hover{
 #vers{
     text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+
+    #card table {
+       border: 0;
+     }
+ 
+    #card table thead {
+       display: none;
+     }
+ 
+    #card table tr {
+       margin-bottom: 20px;
+       display: block;
+       border-bottom: 2px solid #ddd;
+      box-shadow: 2px 2px 1px #dadada;
+ 
+     }
+ 
+    #card table td {
+       display: block;
+       text-align: right;
+       font-size: 13px;
+     }
+ 
+    #card table td:last-child {
+       border-bottom: 0;
+     }
+ 
+    #card table td::before {
+       content: attr(data-label);
+       float: left;
+       text-transform: uppercase;
+       font-weight: bold;
+     }
+         #card	tbody{
+             line-height:0!important;
+         }
+ 
+   }

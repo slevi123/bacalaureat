@@ -1,3 +1,24 @@
+function mobile_table_tag_loader(){
+    tables = document.getElementsByTagName("tbody");
+    // console.log("table labeling ", tables)
+    Array.from(tables).forEach((table)=>{
+        // console.log("preparing table data: ", table)
+        rows = table.children;
+        let headers = rows[0].children;
+        data_rows = Array.from(rows).slice(1);
+        // console.log("data_headers: ", headers)
+        // console.log("data_rows: ", data_rows)
+        for (let data_row_index=0; data_row_index<data_rows.length; data_row_index++){
+            let data_row_children = data_rows[data_row_index].children;
+            // console.log("data_row_children: ", data_row_children)
+            for (let column_index=0; column_index<data_row_children.length; column_index++){
+                data_row_children[column_index].setAttribute( "data-label", headers[column_index].textContent)
+                // console.log("setting header: ", headers[column_index].textContent, ", on: ", data_row_children[column_index])
+            }
+        } 
+    })
+}
+
 function translate(element){
     var other = element.getAttribute("limb");
     element.setAttribute("limb", element.textContent);
@@ -45,6 +66,8 @@ function click_switch(children){
 
 window.onload = function bind(){
     // translate
+    mobile_table_tag_loader();
+
     var motive = (document.getElementById("motive")||{"children":[]}).children;
     
     translants = Array.from(motive)

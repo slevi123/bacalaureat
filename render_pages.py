@@ -33,7 +33,7 @@ def render():
     with pny.db_session:
         opere_lirice = pny.select(opera for opera in OperaLirica)
         process("opere_lirice.html", context={"opere" : opere_lirice})
-        opere_dramatice = pny.select(opera for opera in OperaEpica)
+        opere_dramatice = pny.select(opera for opera in OperaDramatica)
         process("opere_dramatice.html", context={"opere" : opere_dramatice})
         opere_epice = pny.select(opera for opera in OperaEpica)
         process("opere_epice.html", context={"opere" : opere_epice})

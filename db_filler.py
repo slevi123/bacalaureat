@@ -180,7 +180,7 @@ def add_data():
     add_update_rows(OperaEpica, "titlu", opere_epice_list)
 
     opere_dramatice_list = [
-        {"titlu": "O scrisoare pierdută", "artist": "Ion Luca Caragiale", "curent": CurentLiterar.cu_nume("realism"), "gen": Gen.e("dramatic"), "anul": 1884, "tema": Atribut(scurt="u"), "semnificatia_titlului": Atribut(scurt="leitmotiv, instrumentul șantajului"),
+        {"titlu": "O scrisoare pierdută", "artist": "Ion Luca Caragiale", "curent": CurentLiterar.cu_nume("realism"), "gen": Gen.e("dramatic"), "anul": 1884, "tema": Atribut(scurt="politicieni corupți: viața politică și de familie"), "semnificatia_titlului": Atribut(scurt="leitmotiv, instrumentul șantajului"),
             "perioada": "epoca marilor clasici", "specie": "comedie",
             "linkuri": "psihotrop,https://youtu.be/Lk_u0qFOC4w;5 minute pentru BAC,https://youtu.be/ghWLmbX5bvg"},
     ]

@@ -17,9 +17,9 @@
             <td><a href="./opera/{{opera.titlu|linkify}}.html">{{opera.titlu}}</a></td>
             <td>{{opera.artist}}</td>
             <td>{{opera.anul}}</td>
-            <td>{{opera.curent.nume}}</td>
+            <td><trans limb="{{opera.curent.nev}}">{{opera.curent.nume}}</trans></td>
             <td>{{opera.perioada}}</td>
-            <td>{{opera.tema.scurt}}</td>
+            <td><trans limb="{{opera.tema.rovid}}">{{opera.tema.scurt}}</trans></td>
             <td><a href="opere_{{opera.gen.nume}}e.html">{{opera.gen.nume}}</a></td>
         </tr>
         {% endfor %}
