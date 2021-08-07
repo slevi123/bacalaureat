@@ -275,7 +275,10 @@ class GameOptions {
     constructor(){
         this.answer_count = 4;
         this.answer_id = undefined;
+        this.timp = 0;
         this._punctaj = 0;
+
+        this.timer = undefined;
 
         this.__punctaj_dom__ = undefined;
         this.__corect_dom__ = undefined;
@@ -307,6 +310,12 @@ class GameOptions {
     set incorect(new_value){
         this._incorect = new_value;
         if (this.__incorect_dom__) this.__incorect_dom__.textContent = "greșite: " + this._incorect;
+    }
+
+    zero_all(){
+        this.timp = 0;
+        this.corect = 0;
+        this.incorect = 0;
     }
 
     bind(){
@@ -353,15 +362,16 @@ function setTime(timer_dom, timp){
 
 function on_start(){
     game_options.bind();
-
-    document.getElementById("start-button").style.display = "none";
+    console.log(document.getElementById("scores-game-start").style.display);
+    document.getElementById("scores-game-start").style.display = "none";
+    // document.getElementById("start-button").style.display = "none";
     document.getElementById("game").style.display = "block";
     let timer_dom = document.getElementById("timer")
-    let timp = 0;
+    game_options.zero_all();
     timer_dom.textContent="timpul: 0";
-    setInterval(()=>{
-        timp += 1;
-        setTime(timer_dom, timp);
+    game_options.timer = setInterval(()=>{
+        game_options.timp += 1;
+        setTime(timer_dom, game_options.timp);
     }, 1000);
     TemaKor.generate_random_round();
 }
@@ -390,6 +400,19 @@ function add_answer_child(parent, content, answer_count){
     parent.appendChild(new_dom);
 }
 
+function stop_game(){
+    document.getElementById("game").style.display = "none";
+    document.getElementById("eredmeny").style.display = "";
+    document.getElementById("scores-game-start").style.display = "";
+
+    document.getElementById("score").textContent = "scorul tău: " + game_options.punctaj;
+    document.getElementById("time").textContent = "timpul: " + game_options.timp;
+    document.getElementById("corrects").textContent = "răspunsuri corecte: " + game_options.corect;
+    document.getElementById("incorrects").textContent = "răspunsuri incorecte: " + game_options.incorect;
+
+    clearInterval(game_options.timer);
+    // game_options.
+}
 
 
 

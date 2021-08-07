@@ -10,7 +10,15 @@ bacalaureat: joc
 {% endblock imports %}
 
 {% block content %}
-    <button id="start-button" onclick="on_start()">Start</button>
+    <div id="scores-game-start">
+        <div id="eredmeny" style="display: none;">
+            <h4 id=score>scorul tău: </h4>
+            <p id="time">timpul: </p>
+            <g><p id="corrects">răspunsuri corecte: </p></g>
+            <r><p id="incorrects">răspunsuri incorecte: </p></r>
+        </div>
+        <button id="start-button" onclick="on_start()">Start</button>
+    </div>
     <div id="game" class="unselectable" style="display: none;">
         <stats>
             <div>
@@ -30,7 +38,10 @@ bacalaureat: joc
                 
             </div>
         </game-components>
-        <button onclick="TemaKor.generate_random_round()">skip</button>
+        <div id="ingame-buttons">
+            <button onclick="TemaKor.generate_random_round()">skip</button>
+            <button onclick="stop_game()">stop</button>
+        </div>
     </div>
     <div id="optiuni" class="unselectable">
         <label for="opere-option">trăsături operelor: 
