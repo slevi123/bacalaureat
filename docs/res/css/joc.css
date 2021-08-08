@@ -31,7 +31,7 @@ button {
 }
 
 #start-button{
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 #scores-game-start{
@@ -73,13 +73,17 @@ button {
     flex: 1 1 auto;
     flex-wrap: wrap;
     align-items: center;
-
+    justify-content:center;
     margin-top: 20px;
 }
 
 #ingame-buttons > *{
-    display: flex-item;
+    margin: 10px;
 }
+
+/* #ingame-buttons > *{
+    display: flex-item;
+} */
 
 #optiuni-button{
     background: rgba(0, 0, 0, 0.233);
@@ -128,5 +132,125 @@ button {
     cursor: pointer;
 }
 
+#game-mode-selector{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+}
 
+/* minimalistic css from net */
+/* https://codepen.io/renaudtertrais/pen/waLXVx */
 
+.minimalistic-range {
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 1;
+    height: 2em;
+    background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    -webkit-appearance: none;
+    width: 100%;
+  }
+  .minimalistic-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  .minimalistic-range:focus {
+    outline: none;
+  }
+  .minimalistic-range::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  .minimalistic-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 0;
+    background-color: #e61a1a7a;
+    border-radius: 1em;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+  .minimalistic-range::-moz-range-thumb {
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 0;
+    background-color: #16a085;
+    border-radius: 1em;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+  .minimalistic-range::-ms-thumb {
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: 0;
+    background-color: #16a085;
+    border-radius: 1em;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+  }
+  .minimalistic-range:hover::-webkit-slider-thumb {
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+  .minimalistic-range:hover::-moz-range-thumb {
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+  .minimalistic-range:hover::-ms-thumb {
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+  .minimalistic-range:active::-webkit-slider-thumb {
+    border-color: #ffffff;
+  }
+  .minimalistic-range:active::-moz-range-thumb {
+    border-color: #ffffff;
+  }
+  .minimalistic-range:active::-ms-thumb {
+    border-color: #ffffff;
+  }
+  .minimalistic-range::-webkit-slider-runnable-track {
+    width: 100%;
+    cursor: pointer;
+    height: 1em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+  }
+  .minimalistic-range::-moz-range-track {
+    width: 100%;
+    cursor: pointer;
+    height: 1em;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+  }
+  .minimalistic-range::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  section {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #16a08400;
+  }
+  section div {
+    margin: auto;
+    width: 80%;
+  }
+  section h1 {
+    font-family: "Helvetica Neue", Helvetical, Arial, sans-serif;
+    font-weight: 300;
+    margin-bottom: 100px;
+    text-align: center;
+    font-size: 42px;
+    color: rgba(0, 0, 0, 0.3);
+  }
+  

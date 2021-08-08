@@ -375,9 +375,19 @@ function on_start(){
     document.getElementById("game").style.display = "block";
     let timer_dom = document.getElementById("timer")
     game_options.zero_all();
-    timer_dom.textContent="timpul: 0";
+    var game_mode = parseInt(document.getElementById("game-mode-switch").value);
+    let final_time_dom = document.getElementById("time");
+    if (game_mode){
+        final_time_dom.style.display="none";
+        game_options.timp = 180;
+    } else final_time_dom.style.display="";
+
+    timer_dom.textContent="timpul: " + game_options.timp;
     game_options.timer = setInterval(()=>{
-        game_options.timp += 1;
+        if (game_mode){
+            game_options.timp -= 1;
+            if (game_options.timp == 0) stop_game();
+        } else game_options.timp += 1;
         setTime(timer_dom, game_options.timp);
     }, 1000);
     TemaKor.generate_random_round();

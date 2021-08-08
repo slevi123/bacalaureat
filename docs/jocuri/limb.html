@@ -36,7 +36,12 @@ bacalaureat: joc
             <g><p id="corrects">răspunsuri corecte: </p></g>
             <r><p id="incorrects">răspunsuri incorecte: </p></r>
         </div>
-        <button id="start-button" onclick="on_start()">Start</button>
+        <label id="game-mode-selector" >
+            <h4>szabad</h4>
+            <input type="range" min=0 max=1 value=1 class="minimalistic-range" id="game-mode-switch">
+            <h4>kötött</h4>
+          </label>
+        <button id="start-button" onclick="on_start()">start</button>
     </div>
     <div id="game" class="unselectable" style="display: none;">
         <stats>
@@ -131,10 +136,11 @@ bacalaureat: joc
             if (content.getAttribute("visible")=="true"){
               content.style.display = "none";
               content.setAttribute("visible", "false")
+              coll[i].textContent = coll[i].textContent.slice(0, -1); + "▼";
             } else {
                 content.style.display = "flex";
                 content.setAttribute("visible", "true")
-                
+                coll[i].textContent = coll[i].textContent.slice(0, -1); + "▲";
             }
           });
         }
