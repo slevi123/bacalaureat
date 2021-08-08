@@ -126,6 +126,7 @@ button {
 #answer-options > p{
     background: rgb(231, 240, 180);
     border-radius: 24%/30%;
+    /* border-radius: 10px; */
     padding: 15px;
     margin: 10px;
     font-size: 17px;
@@ -139,6 +140,36 @@ button {
     justify-content: center;
     align-items: center;
     margin-top: 35px;
+}
+
+#typeins{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* background: rgba(132, 132, 241, 0.733); */
+    background: rgb(53, 111, 235);
+    /* border-radius: 24%/30%; */
+    border-radius: 15px;
+    flex: 1 1 auto;
+    width: fit-content;
+    margin: auto;
+    padding: 1px 0px;
+}
+
+#typein-answer{
+    border-radius: 15px;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+#typein-answer:focus{
+    outline:none;
+}
+
+#typein-button{
+    background: rgb(53, 111, 235);
 }
 
 /* minimalistic css from net */

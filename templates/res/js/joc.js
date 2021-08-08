@@ -7,6 +7,31 @@ opere_curente = {{opere_curente|safe}}
 opere_perioade = {{opere_perioade|safe}}
 cuvinte_din_compuneri = {{cuvinte_din_compuneri|safe}}
 
+function check_form(answer){
+    let lookup = {
+        "á": "a",
+        "é": "e",
+        "ö": "o",
+        "ő": "o",
+        "ú": "u",
+        "ü": "u",
+        "ű": "u",
+        "í": "i",
+        "ă": "a",
+        "î": "i",
+        "â": "a",
+        "ș": "s",
+        "ț": "t",
+    }
+
+    let formatted = "";
+    for (letter of answer){
+        if (letter in lookup) formatted += lookup[letter]
+        else formatted += letter;
+    }
+    return formatted;
+}
+
 function children_enabler(checkbox, children_ids){
     children_ids.forEach((child_id)=>{
         console.log(child_id)
@@ -96,6 +121,7 @@ class TemaKor {
         game_options.answer_id = ~~(Math.random() * Math.min(game_options.answer_count, this.list.length))
 
         this.generate_possibles();
+        game_options.correct_answer = this.answer_form(this.question);
         this.answers = [];
         let temp_option = undefined;
 
@@ -117,15 +143,29 @@ class TemaKor {
     static new_word(){
         let question_dom = document.getElementById("question");
         let answer_doms = document.getElementById("answer-options");
+        let typeins_dom = document.getElementById("typeins")
+        let typein_answer_dom = document.getElementById("typein-answer")
     
         // let answer_id = 3
         this.generate_round()
         question_dom.textContent = this.question_formula;
         // console.log(answers)
-        remove_children(answer_doms)
-        for (let i=0; i<game_options.answer_count; i++){
-            if (!this.answers[i]) break;
-            add_answer_child(answer_doms, this.answer_form(this.answers[i]), i);
+
+        let answer_mode = ~~(Math.random()*2)
+        if (answer_mode){
+            answer_doms.style.display = "none";
+            typeins_dom.style.border = "";
+            typein_answer_dom.value = '';
+            typeins_dom.style.display = "";
+            typein_answer_dom.focus();
+        } else {
+            answer_doms.style.display = "";
+            typeins_dom.style.display = "none";
+            remove_children(answer_doms)
+            for (let i=0; i<game_options.answer_count; i++){
+                if (!this.answers[i]) break;
+                add_answer_child(answer_doms, this.answer_form(this.answers[i]), i);
+            }
         }
     }
 }
@@ -286,6 +326,7 @@ class GameOptions {
         this._punctaj = 0;
 
         this.timer = undefined;
+        this.correct_answer = undefined;
 
         this.__punctaj_dom__ = undefined;
         this.__corect_dom__ = undefined;
@@ -354,17 +395,22 @@ function remove_children(dom_element){
         child = dom_element.lastElementChild;
     }
 }
-function setTime(timer_dom, timp){
+
+function format_time(timp){
     let minutes = ~~(timp/60)
     if (minutes){
         let seconds = timp%60;
         let hours = ~~(minutes/60);
         if (hours){
             minutes = minutes%60;
-            timer_dom.textContent="timpul: "+ hours + " h, " +minutes + " min, " + seconds +" sec";
+            return "timpul: "+ hours + " h, " +minutes + " min, " + seconds +" sec";
             // TODO: gameover after an hour
-        } else timer_dom.textContent="timpul: "+ minutes + " min, " + seconds +" sec";
-    } else timer_dom.textContent="timpul: "+ timp + " sec";
+        } else return "timpul: "+ minutes + " min, " + seconds +" sec";
+    } else return "timpul: "+ timp + " sec";
+}
+
+function setTime(timer_dom, timp){
+    timer_dom.textContent=format_time(timp);
 }
 
 function on_start(){
@@ -391,6 +437,23 @@ function on_start(){
         setTime(timer_dom, game_options.timp);
     }, 1000);
     TemaKor.generate_random_round();
+}
+
+function evaluate_typein_solution(){
+    let typein_answer_dom = document.getElementById("typein-answer");
+    let typein_dom = document.getElementById("typeins");
+    let answer = typein_answer_dom.value;
+    if (check_form(answer)==check_form(game_options.correct_answer)){
+        game_options.punctaj +=1;
+        game_options.corect +=1;
+        typein_dom.style.border="4px solid lawngreen"; 
+    } else {
+        game_options.incorect +=1;
+
+        typein_dom.style.border="4px solid red"; 
+    }       
+
+    window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
 }
 
 function evaluate_solution(user_answer_id){
@@ -423,7 +486,7 @@ function stop_game(){
     document.getElementById("scores-game-start").style.display = "";
 
     document.getElementById("score").textContent = "scorul tău: " + game_options.punctaj;
-    document.getElementById("time").textContent = "timpul: " + game_options.timp;
+    document.getElementById("time").textContent = format_time(game_options.timp);
     document.getElementById("corrects").textContent = "răspunsuri corecte: " + game_options.corect;
     document.getElementById("incorrects").textContent = "răspunsuri incorecte: " + game_options.incorect;
 
@@ -431,9 +494,10 @@ function stop_game(){
     // game_options.
 }
 
-
+    
 
 window.addEventListener("load", ()=>{
+    //checkboxok bekapcsolasa
     let option_dom = document.getElementById("optiuni");
     Array.from(option_dom.children).forEach((label)=>{
         input_dom = label.children[0];
@@ -444,4 +508,17 @@ window.addEventListener("load", ()=>{
     //     kor.enabled = false;
     // })
     // Curente.enabled = true;
+
+
+    //input enter bindolasa
+    let input = document.getElementById("typein-answer")
+    input.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("typein-button").click();
+        }
+    });
 });

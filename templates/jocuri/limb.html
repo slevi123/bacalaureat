@@ -39,6 +39,10 @@ bacalaureat: joc
             <p id="question">
                 
             </p>
+            <div id="typeins">
+                <input type="text" id="typein-answer"><br>
+                <button onclick="evaluate_typein_solution()" id="typein-button">check</button>
+            </div>
             <div id="answer-options">
                 
             </div>
@@ -107,8 +111,8 @@ bacalaureat: joc
         </style>
         
         <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
+        let coll = document.getElementsByClassName("collapsible");
+        let i;
         
         for (i = 0; i < coll.length; i++) {
           coll[i].addEventListener("click", function() {
@@ -117,11 +121,11 @@ bacalaureat: joc
             if (content.getAttribute("visible")=="true"){
               content.style.display = "none";
               content.setAttribute("visible", "false")
-              coll[i].textContent = coll[i].textContent.slice(0, -1); + "▼";
+              this.textContent = this.textContent.slice(0, -1) + "▼";
             } else {
                 content.style.display = "flex";
                 content.setAttribute("visible", "true")
-                coll[i].textContent = coll[i].textContent.slice(0, -1); + "▲";
+                this.textContent = this.textContent.slice(0, -1) + "▲";
             }
           });
         }
