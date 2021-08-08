@@ -1,12 +1,13 @@
 import datetime
 from enum import unique
 from re import S
+from serializers import SzoalakSerializer
 from jinja2 import defaults
 import pony.orm as pny
-from pony.orm.core import Required
+from pony.orm.core import Database, Required
 
 database = pny.Database("sqlite",
-                        "test51.sqlite",
+                        "test56.sqlite",
                         create_db=True)
 
 class Gen(database.Entity):
@@ -145,7 +146,34 @@ class OperaEpica(Opera):
 class OperaDramatica(Opera):
     personaje = pny.Set(Personaj)
 
+# class Szoalak():
+#     serializer = SzoalakSerializer
+#     def __init__(self, roman, magyar) -> None:
+#         self.roman = roman
+#         self.magyar = magyar
 
+#     def to_json(self):
+#         return self.serializer.dict_instance_serialize(self.__dict__)
+
+#     @classmethod
+#     def from_json(cls, json_dict):
+#         deserialized = cls.serializer.dict_instance_deserialize(json_dict)
+#         return cls(deserialized)
+        
+
+class Substantiv(database.Entity):
+    search_value = pny.Required(str)
+    singular = pny.Optional(pny.Json)
+    plural = pny.Optional(pny.Json)
+
+class Verb(database.Entity):
+    search_value = pny.Required(str)
+    infinitiv = pny.Required(pny.Json)
+
+class StructAlt(database.Entity):
+    search_value = pny.Optional(str)
+    nume = pny.Required(str)
+    nev = pny.Required(str)
 
 # pny.sql_debug(True)
 # map the models to the database 

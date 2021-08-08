@@ -5,6 +5,7 @@ fizice = {{fizice|safe}}
 opere = {{opere|safe}}
 opere_curente = {{opere_curente|safe}}
 opere_perioade = {{opere_perioade|safe}}
+cuvinte_din_compuneri = {{cuvinte_din_compuneri|safe}}
 
 function children_enabler(checkbox, children_ids){
     children_ids.forEach((child_id)=>{
@@ -244,6 +245,12 @@ class Artiste extends TemaKor {
 }
 
 
+class CuvinteDinCompuneri extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = cuvinte_din_compuneri;
+}
 class Sentimente extends TemaKor {
     static dummy = TemaKor.derived.push(this);
     static enabled = true;

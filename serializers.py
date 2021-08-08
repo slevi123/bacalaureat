@@ -1,4 +1,4 @@
-from json import dumps
+from json import dumps, loads
 from collections import defaultdict
 
 class SimpleSerializerBase:
@@ -13,6 +13,36 @@ class SimpleSerializerBase:
     def query_serialize(self, query):
         pythonic = list(map(lambda instance:self.picking(instance.to_dict()), query))
         return dumps(pythonic, ensure_ascii=False)
+
+    def dict_instance_serialize(self, instance):
+        pythonic = self.picking(instance)
+        return dumps(pythonic, ensure_ascii=False)
+
+    def dict_instance_deserialize(self, json_dict):
+        # pythonic = self.picking(instance)
+        return loads(json_dict, ensure_ascii=False)
+
+class CuvantSerializer(SimpleSerializerBase):
+    @staticmethod
+    def substantive_query_loader(query):
+        return [cuvant.singular for cuvant in query if cuvant.singular] +\
+            [cuvant.plural for cuvant in query if cuvant.plural]
+
+    @staticmethod
+    def verb_query_loader(query):
+        return [cuvant.infinitiv for cuvant in query]
+
+    @staticmethod
+    def structalt_query_loader(query):
+        return [{"nume": cuvant.nume, "nev": cuvant.nev} for cuvant in query]
+
+
+    def query_serialize(self, substantive_query, verb_query, structalt_query):
+        pythonic = self.substantive_query_loader(substantive_query)
+        pythonic += self.verb_query_loader(verb_query)
+        pythonic += self.structalt_query_loader(structalt_query)
+        return dumps(pythonic, ensure_ascii=False)
+
 
 class AsemSerializerBase(SimpleSerializerBase):
     asem_field = ""
@@ -37,6 +67,9 @@ class NevNumeSerializer(SimpleSerializerBase):
 
 class OperaSerializer(SimpleSerializerBase):
     include = ["titlu", "anul", "artist"]
+
+class SzoalakSerializer(SimpleSerializerBase):
+    include = ["nume", "nev"]
 
 
 

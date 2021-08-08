@@ -216,7 +216,7 @@ table td {
 
 @media screen and (max-width: 600px) {
     
-    h2{
+    .kis-cim{
         font-size: 10px;
     }
 

@@ -16,6 +16,8 @@ button {
     font-size: 20px;
     border: none;
     padding: 5px 8px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .tab-padding{
@@ -79,13 +81,20 @@ button {
     display: flex-item;
 }
 
-#optiuni{
+#optiuni-button{
+    background: rgba(0, 0, 0, 0.233);
     margin-top: 30px;
+    margin-bottom: 0px;
+    padding: 2px 4px ;
+}
+
+#optiuni{
+    margin-top: 5px;
     padding: 20px 25px;
 
     border-radius: 10px;
     background: whitesmoke;
-    display: flex;
+    display: none;
     flex-direction: column;
     /* justify-content: left; */
     align-items: left;

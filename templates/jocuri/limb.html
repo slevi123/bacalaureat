@@ -43,7 +43,8 @@ bacalaureat: joc
             <button onclick="stop_game()">stop</button>
         </div>
     </div>
-    <div id="optiuni" class="unselectable">
+    <button id="optiuni-button" class="collapsible">opțiuni▼</button>
+    <div id="optiuni" class="unselectable content" visible="false">
         <label for="opere-option">trăsături operelor: 
             <input type="checkbox" id="opere-option" onchange="children_enabler(this, ['anul-option', 'artist-option', 'perioada-option', 'anulautor-option', 'curent-option'])">
         </label>
@@ -85,8 +86,39 @@ bacalaureat: joc
         <label for="fizice-option" class="double-tab-padding">fizice: 
             <input type="checkbox" id="fizice-option" name="fizice-option" onchange="Fizice.bind(this)" value="show">
         </label>
+        <label for="din_compuneri-option" class="tab-padding">din compuneri: 
+            <input type="checkbox" id="din_compuneri-option" onchange="CuvinteDinCompuneri.bind(this)" value="show">
+        </label>
         <label for="answer-num-option">numărul răspunsurilor: </label>
         <input type="range" min="2" max="10" value="4" class="slider" id="answer-num-option">
     </div>
+
+
+
+    <style>
+        .content {
+          transition: max-height 0.2s ease-out;
+        }
+        </style>
+        
+        <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.getAttribute("visible")=="true"){
+              content.style.display = "none";
+              content.setAttribute("visible", "false")
+            } else {
+                content.style.display = "flex";
+                content.setAttribute("visible", "true")
+                
+            }
+          });
+        }
+        </script>
 
 {% endblock content %}

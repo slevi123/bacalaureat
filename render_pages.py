@@ -1,9 +1,9 @@
 from re import split
 import pony.orm as pny
-from models import Opera, OperaDramatica, OperaEpica, OperaLirica, Sentiment, Tema, Trasatura
+from models import Opera, OperaDramatica, OperaEpica, OperaLirica, Sentiment, StructAlt, Substantiv, Tema, Trasatura, Verb
 from pathlib import Path
 from filters import register_filters, linkify
-from serializers import NevNumeSerializer, OperaCurentSerializer, OperaSerializer
+from serializers import CuvantSerializer, NevNumeSerializer, OperaCurentSerializer, OperaSerializer
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def render():
@@ -56,15 +56,20 @@ def render():
         op_ser = OperaSerializer()
         op_cur_ser = OperaCurentSerializer()
         op_per_ser = OperaCurentSerializer()
+        cuv_ser = CuvantSerializer()
 
         opere_by_curent = pny.select((opera.curent.nume, opera) for opera in Opera)
         opere_by_perioada = pny.select((opera.perioada, opera) for opera in Opera)
+
+        substantive = pny.select(sub for sub in Substantiv)
+        verbe = pny.select(verb for verb in Verb)
+        structalte = pny.select(sa for sa in StructAlt)
 
 
         process("jocuri/limb.html")
         process("res/js/joc.js", context={"teme": nn_ser.query_serialize(teme_fara_sentimente), "sentimente": nn_ser.query_serialize(sentimente), 
             "morale": nn_ser.query_serialize(morale), "fizice": nn_ser.query_serialize(fizice), "opere": op_ser.query_serialize(opere), "opere_curente": op_cur_ser.query_serialize(opere_by_curent),
-            "opere_perioade": op_per_ser.query_serialize(opere_by_perioada)})
+            "opere_perioade": op_per_ser.query_serialize(opere_by_perioada), "cuvinte_din_compuneri": cuv_ser.query_serialize(substantive, verbe, structalte)})
 
         for opera in opere_lirice:
             process(f"opera/{linkify(opera.titlu)}.html", context = {"opera": opera}, template_path="opera_lirica.html")

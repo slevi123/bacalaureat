@@ -2,24 +2,30 @@
 
 {% block content %}
     <h2>Opere Epice</h2>
-    <table style="width:100%">
-        <tr>
-            <th>Nume</th>
-            <th>Autor</th>
-            <th>An</th>
-            <th>Curent Literar</th>
-            <th>Temă</th>
-            <th>Genul</th>
-        </tr>
-        {% for opera in opere %}
-        <tr>
-            <td><a href="./opera/{{opera.titlu|linkify}}.html">{{opera.titlu}}</a></td>
-            <td>{{opera.artist}}</td>
-            <td>{{opera.anul}}</td>
-            <td>{{opera.curent.nume}}</td>
-            <td>{{opera.tema.scurt}}</td>
-            <td><a href="opere_{{opera.gen.nume}}e.html">{{opera.gen.nume}}</a></td>
-        </tr>
-        {% endfor %}
-        </table>
+    <table style="width:100%" class="card">
+        <thead>
+            <tr>
+                <th>Nume</th>
+                <th>Autor</th>
+                <th>An</th>
+                <th>Curent Literar</th>
+                <th>Perioadă</th>
+                <th>Temă</th>
+                <th>Genul</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for opera in opere %}
+            <tr>
+                <td><a href="./opera/{{opera.titlu|linkify}}.html">{{opera.titlu}}</a></td>
+                <td>{{opera.artist}}</td>
+                <td>{{opera.anul}}</td>
+                <td><trans limb="{{opera.curent.nev}}">{{opera.curent.nume}}</trans></td>
+                <td>{{opera.perioada}}</td>
+                <td><trans limb="{{opera.tema.rovid}}">{{opera.tema.scurt}}</trans></td>
+                <td><a href="opere_{{opera.gen.nume}}e.html">{{opera.gen.nume}}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock content %}
