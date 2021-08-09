@@ -5,7 +5,7 @@ fizice = [{"nev": "magas", "nume": "înalt"}, {"nev": "gyenge", "nume": "slab"},
 opere = [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}, {"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}, {"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}, {"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}, {"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}]
 opere_curente = {"simbolism": [{"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}], "romantism": [{"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}], "modernism": [{"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}], "romantic realism": [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}], "modernism, realism": [{"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}], "realism": [{"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}]}
 opere_perioade = {"antebelică": [{"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}], "epoca marilor clasici": [{"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}, {"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}, {"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}], "interbelică": [{"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}]}
-cuvinte_din_compuneri = [{"nev": "remekmű", "nume": "capodoperă"}, {"nev": "nevetés", "nume": "râset"}, {"nev": "visszatérő motívum", "nume": "leitmotiv"}, {"nev": "nevetni", "nume": "a râde"}, {"nume": "caracter moralizator", "nev": "erkölcsi jelleg"}]
+cuvinte_din_compuneri = [{"nev": "remekmű", "nume": "capodoperă"}, {"nev": "nevetés", "nume": "râset"}, {"nev": "visszatérő motívum", "nume": "leitmotiv"}, {"nev": "zsarolás", "nume": "șantaj"}, {"nev": "tanító", "nume": "dascăl"}, {"nev": "ellenfél", "nume": "adversar"}, {"nev": "ellenség", "nume": "dușman"}, {"nev": "hivatalnok", "nume": "funcționar"}, {"nev": "nevetni", "nume": "a râde"}, {"nev": "támogatni", "nume": "a sprijine"}, {"nev": "kibékülni", "nume": "a împăca"}, {"nev": "kémkedni", "nume": "a spiona"}, {"nev": "elérni", "nume": "a atinge"}, {"nume": "caracter moralizator", "nev": "erkölcsi jelleg"}, {"nume": "partidul de guvernământ", "nev": "kormánypárt"}, {"nume": "partidul de opoziție", "nev": "ellenzéki párt"}, {"nume": "situații jenante", "nev": "szégyenletes helyzetek"}, {"nume": "să spioneze", "nev": "hogy kémkedjen"}, {"nume": "tipul încornoratului", "nev": "a felszarvazott tipusa"}, {"nume": "tipul amorezului", "nev": "a nőcsábász tipusa"}, {"nume": "tipul femeii ușoare", "nev": "a könnyű nő tipusa"}, {"nume": "incult", "nev": "műveletlen"}, {"nume": "contemporană", "nev": "jelenkori"}]
 
 function check_form(answer){
     let lookup = {
@@ -24,12 +24,18 @@ function check_form(answer){
         "ț": "t",
     }
 
-    let formatted = "";
-    for (letter of answer){
-        if (letter in lookup) formatted += lookup[letter]
-        else formatted += letter;
+    if (! Number.isInteger(answer)){
+        answer = answer.toLowerCase();
+        let formatted = "";
+        for (letter of answer){
+            if (letter in lookup) formatted += lookup[letter]
+            else formatted += letter;
+        }
+        console.log(formatted);
+        return formatted;
     }
-    return formatted;
+    console.log(answer);
+    return answer;
 }
 
 function children_enabler(checkbox, children_ids){
@@ -145,10 +151,13 @@ class TemaKor {
         let answer_doms = document.getElementById("answer-options");
         let typeins_dom = document.getElementById("typeins")
         let typein_answer_dom = document.getElementById("typein-answer")
+        let typein_solution_dom = document.getElementById("typein-solution")
+
     
         // let answer_id = 3
         this.generate_round()
         question_dom.textContent = this.question_formula;
+        typein_solution_dom.textContent = "";
         // console.log(answers)
 
         let answer_mode = ~~(Math.random()*2)
@@ -441,6 +450,7 @@ function on_start(){
 
 function evaluate_typein_solution(){
     let typein_answer_dom = document.getElementById("typein-answer");
+    let typein_solution_dom = document.getElementById("typein-solution");
     let typein_dom = document.getElementById("typeins");
     let answer = typein_answer_dom.value;
     if (check_form(answer)==check_form(game_options.correct_answer)){
@@ -449,7 +459,7 @@ function evaluate_typein_solution(){
         typein_dom.style.border="4px solid lawngreen"; 
     } else {
         game_options.incorect +=1;
-
+        typein_solution_dom.textContent=game_options.correct_answer;
         typein_dom.style.border="4px solid red"; 
     }       
 

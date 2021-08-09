@@ -24,12 +24,18 @@ function check_form(answer){
         "ț": "t",
     }
 
-    let formatted = "";
-    for (letter of answer){
-        if (letter in lookup) formatted += lookup[letter]
-        else formatted += letter;
+    if (! Number.isInteger(answer)){
+        answer = answer.toLowerCase();
+        let formatted = "";
+        for (letter of answer){
+            if (letter in lookup) formatted += lookup[letter]
+            else formatted += letter;
+        }
+        console.log(formatted);
+        return formatted;
     }
-    return formatted;
+    console.log(answer);
+    return answer;
 }
 
 function children_enabler(checkbox, children_ids){
@@ -145,10 +151,13 @@ class TemaKor {
         let answer_doms = document.getElementById("answer-options");
         let typeins_dom = document.getElementById("typeins")
         let typein_answer_dom = document.getElementById("typein-answer")
+        let typein_solution_dom = document.getElementById("typein-solution")
+
     
         // let answer_id = 3
         this.generate_round()
         question_dom.textContent = this.question_formula;
+        typein_solution_dom.textContent = "";
         // console.log(answers)
 
         let answer_mode = ~~(Math.random()*2)
@@ -441,6 +450,7 @@ function on_start(){
 
 function evaluate_typein_solution(){
     let typein_answer_dom = document.getElementById("typein-answer");
+    let typein_solution_dom = document.getElementById("typein-solution");
     let typein_dom = document.getElementById("typeins");
     let answer = typein_answer_dom.value;
     if (check_form(answer)==check_form(game_options.correct_answer)){
@@ -449,7 +459,7 @@ function evaluate_typein_solution(){
         typein_dom.style.border="4px solid lawngreen"; 
     } else {
         game_options.incorect +=1;
-
+        typein_solution_dom.textContent=game_options.correct_answer;
         typein_dom.style.border="4px solid red"; 
     }       
 
