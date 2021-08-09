@@ -1,13 +1,14 @@
 import datetime
 from enum import unique
 from re import S
+
 from serializers import SzoalakSerializer
 from jinja2 import defaults
 import pony.orm as pny
 from pony.orm.core import Database, Required
 
 database = pny.Database("sqlite",
-                        "test56.sqlite",
+                        "test57.sqlite",
                         create_db=True)
 
 class Gen(database.Entity):
@@ -75,6 +76,10 @@ class Opera(database.Entity):
 
 
     linkuri = pny.Optional(pny.unicode)
+
+    @classmethod
+    def cu_titlu(cls, titlu):
+        return cls.get(titlu=titlu)
 
 class Rima(database.Entity):
     nume = pny.PrimaryKey(pny.unicode)
@@ -145,6 +150,10 @@ class OperaEpica(Opera):
 
 class OperaDramatica(Opera):
     personaje = pny.Set(Personaj)
+
+    conflict = pny.Optional(pny.Json)
+    intriga = pny.Optional(pny.Json)
+    desfasurarea_actiunii  = pny.Optional(pny.Json)
 
 # class Szoalak():
 #     serializer = SzoalakSerializer

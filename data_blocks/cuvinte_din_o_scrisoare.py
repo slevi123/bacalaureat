@@ -14,6 +14,7 @@ cuvinte_din_o_srisoare = [
             {"singular": {"nume": "adversar", "nev": "ellenfél"}},
             {"singular": {"nume": "dușman", "nev": "ellenség"}},
             {"singular": {"nume": "funcționar", "nev": "hivatalnok"}},
+            {"singular": {"nume": "parvenitism", "nev": "nagyravágyás"}},
             # {"singular": {"nume": "", "nev": ""}},
         ]
     ],
@@ -22,7 +23,7 @@ cuvinte_din_o_srisoare = [
         "search_value",
         [
             {"infinitiv": {"nume": "a râde", "nev": "nevetni"}},
-            {"infinitiv": {"nume": "a sprijine", "nev": "támogatni"}},
+            {"infinitiv": {"nume": "a sprijini", "nev": "támogatni"}},
             {"infinitiv": {"nume": "a împăca", "nev": "kibékülni"}},
             {"infinitiv": {"nume": "a spiona", "nev": "kémkedni"}},
             {"infinitiv": {"nume": "a atinge", "nev": "elérni"}},
@@ -43,7 +44,7 @@ cuvinte_din_o_srisoare = [
             {"nume": "tipul femeii ușoare", "nev": "a könnyű nő tipusa"},
             {"nume": "incult", "nev": "műveletlen"},
             {"nume": "contemporană", "nev": "jelenkori"},
-            # {"nume": "", "nev": ""},
+            {"nume": "triunghiul conjugal", "nev": ""},
             # {"nume": "", "nev": ""},
         ]
     ],

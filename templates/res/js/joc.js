@@ -64,6 +64,7 @@ class TemaKor {
 
     // static list = fizice;
     static mixable = true;
+    static typein = true;
     static possibles = {
         "nev": {"pre": "Ce înseamnă: ", post:"?"},
         "nume": {"pre": "Mit jelent: ", post:"?"}, 
@@ -161,7 +162,7 @@ class TemaKor {
         // console.log(answers)
 
         let answer_mode = ~~(Math.random()*2)
-        if (answer_mode){
+        if (answer_mode && this.typein){
             answer_doms.style.display = "none";
             typeins_dom.style.border = "";
             typein_answer_dom.value = '';
@@ -347,6 +348,7 @@ class GameOptions {
     }
 
     set punctaj(new_value){
+        if (new_value < 0) new_value=0;
         this._punctaj = new_value;
         if (this.__punctaj_dom__) this.__punctaj_dom__.textContent = "punctaj: " + this._punctaj;
     }
@@ -370,6 +372,7 @@ class GameOptions {
     }
 
     zero_all(){
+        this.punctaj = 0;
         this.timp = 0;
         this.corect = 0;
         this.incorect = 0;
@@ -437,7 +440,7 @@ function on_start(){
         game_options.timp = 180;
     } else final_time_dom.style.display="";
 
-    timer_dom.textContent="timpul: " + game_options.timp;
+    timer_dom.textContent= format_time(game_options.timp);
     game_options.timer = setInterval(()=>{
         if (game_mode){
             game_options.timp -= 1;
@@ -459,10 +462,11 @@ function evaluate_typein_solution(){
         typein_dom.style.border="4px solid lawngreen"; 
     } else {
         game_options.incorect +=1;
+        game_options.punctaj -= 2;
         typein_solution_dom.textContent=game_options.correct_answer;
         typein_dom.style.border="4px solid red"; 
     }       
-
+    
     window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
 }
 
@@ -470,7 +474,10 @@ function evaluate_solution(user_answer_id){
     if (game_options.answer_id==user_answer_id){
         game_options.punctaj +=1;
         game_options.corect +=1;
-    } else game_options.incorect +=1;
+    } else {
+        game_options.incorect +=1;
+        game_options.punctaj -= 2;
+    }
 
     answer_doms = document.getElementById("answer-options").children
     Array.from(answer_doms).forEach((answer_dom)=>{
@@ -488,6 +495,11 @@ function add_answer_child(parent, content, answer_count){
     new_dom.setAttribute("answer-count", answer_count);
     new_dom.onclick=()=>evaluate_solution(answer_count);
     parent.appendChild(new_dom);
+}
+
+function on_skip(){
+    game_options.punctaj -= 3;
+    TemaKor.generate_random_round();
 }
 
 function stop_game(){
