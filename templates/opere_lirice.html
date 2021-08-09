@@ -7,28 +7,32 @@
 {% block content %}
     <h2>Opere Lirice</h2>
     <table style="width:100%">
-        <tr>
-            <th>Nume</th>
-            <th>Autor</th>
-            <th>An</th>
-            <th>Curent Literar</th>
-            <th class="prozodie">Ritm</th>
-            <th class="prozodie">Rimă</th>
-            <th class="prozodie">Măsură</th>
-        </tr>
-        {% for opera in opere %}
-        <tr>
-            <td><a href="./opera/{{opera.titlu|linkify}}.html">{{opera.titlu}}</a></td>
-            <td>{{opera.artist}}</td>
-            <td>{{opera.anul}}</td>
-            <td>{{opera.curent.nume}}</td>
-            <td class="prozodie">{{opera.ritm}}</td>
-            <td class="prozodie">{{opera.rima.formula}}</td>
-            <td class="prozodie">{{opera.masura}}</td>
-        </tr>
-        {% endfor %}
-        </table>
+        <thead>
+            <tr>
+                <th>Nume</th>
+                <th>Autor</th>
+                <th>An</th>
+                <th>Curent Literar</th>
+                <th class="prozodie">Ritm</th>
+                <th class="prozodie">Rimă</th>
+                <th class="prozodie">Măsură</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for opera in opere %}
+            <tr>
+                <td><a href="./opera/{{opera.titlu|linkify}}.html">{{opera.titlu}}</a></td>
+                <td>{{opera.artist}}</td>
+                <td>{{opera.anul}}</td>
+                <td>{{opera.curent.nume}}</td>
+                <td class="prozodie">{{opera.ritm}}</td>
+                <td class="prozodie">{{opera.rima.formula}}</td>
+                <td class="prozodie">{{opera.masura}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-        <label for="prozodia-check">Prozodia: </label>
-        <input type="checkbox" id="prozodia-check" name="prozodia-check" value="show">
+    <label for="prozodia-check">Prozodia: </label>
+    <input type="checkbox" id="prozodia-check" name="prozodia-check" value="show">
 {% endblock content %}

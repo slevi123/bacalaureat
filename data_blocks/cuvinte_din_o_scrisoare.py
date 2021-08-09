@@ -44,7 +44,7 @@ cuvinte_din_o_srisoare = [
             {"nume": "tipul femeii ușoare", "nev": "a könnyű nő tipusa"},
             {"nume": "incult", "nev": "műveletlen"},
             {"nume": "contemporană", "nev": "jelenkori"},
-            {"nume": "triunghiul conjugal", "nev": ""},
+            {"nume": "triunghiul conjugal", "nev": "szerelmi háromszög"},
             # {"nume": "", "nev": ""},
         ]
     ],
