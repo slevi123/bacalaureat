@@ -39,11 +39,11 @@ def load_opere():
                 Atribut(lung="În prima strofă eul liric descrie condiția dramatică a poetului pe care Dumnezeu l-a aruncat și l-a uitat în Infernul închisorii.\
                     Creatorul și în aceste condiții e blestemat să creeze prin toate mijloacele care îi stau la îndemână.\
                     El își scrie opera pe zidurile celulei zgâriind cu unghia de la mână în lipsa unui instrument de scris.\
-                    <br>Nu este ajutat de divinitate care nu-i trimite animale sfinte ca evangheliștilor, cele trei animale sfinte, taurul, leul și vulturul apar ca simboluri religioase, semnificând jertfa.",
+                    \r\nNu este ajutat de divinitate care nu-i trimite animale sfinte ca evangheliștilor, cele trei animale sfinte, taurul, leul și vulturul apar ca simboluri religioase, semnificând jertfa.",
                 hosszu="Az első versszakban a lírai én leírja a költő drámai helyzetét, akit Isten a börtön Poklába vetett és ott felejtett.\
                     Az alkotó ezek a feltételek között is arra van átkozva, hogy alkosson, minden keze ügyében levő eszközzel.\
                     Ő írja a művét, kezének körmével karcolva a cella falaiba íróeszköz hiányában.\
-                    <br>Nem segíti őt Isten se, aki nem küld neki szent állatokat, mint az Evangelistáknak a három szent állatot, a bika, az oroszlán és a keselyű vallási szimbolumokként jelennek meg, az áldozatot jelképezve.",
+                    \r\nNem segíti őt Isten se, aki nem küld neki szent állatokat, mint az Evangelistáknak a három szent állatot, a bika, az oroszlán és a keselyű vallási szimbolumokként jelennek meg, az áldozatot jelképezve.",
                 scurt="Prima strofă", rovid="Az első versszak"),
                 Atribut(lung="Strofa a doua descrie caracteristicile unei asemenea opere literare , născută din durere, doliu, revoltă și lipsa de credință.\
                     E o poezie la fel ca și viața condamnaților.\

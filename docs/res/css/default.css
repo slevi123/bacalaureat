@@ -63,7 +63,7 @@ switch:hover{
     cursor: pointer;
 }
 
-trans:hover{
+trans:active, trans:hover{
     color: hotpink;
 }
 
@@ -127,6 +127,14 @@ trans:hover{
     background: rgb(191, 203, 236);
 }
 
+.structura >* {
+    background: rgba(202, 69, 180, 0.623);
+}
+
+.discesc > * , .personaje > *{
+    background: rgba(247, 27, 27, 0.596);
+}
+
 .linkuri > * {
     background: rgb(191, 236, 208);
 }
@@ -138,8 +146,10 @@ trans:hover{
 }
 
 .hosszu {
-    border-radius: 0/0 !important; /* 5%/7%; */
+    border-radius: 10px;
     /* color: khaki; */
+    white-space:pre-line;
+    /* margin-top: 20px; */
 }
 
 .magyar-tema{

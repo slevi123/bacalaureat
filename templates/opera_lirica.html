@@ -35,15 +35,15 @@
             <switch><p class="switch-element trans" limb="{{extra.rovid}}">{{extra.scurt}}</p><p  class="switch-element trans hosszu" limb="{{extra.hosszu}}">{{extra.lung}}</p></switch>
             {% endfor %}
         </div>
-        <div class="flex structura ordered-cont">
+        <div class="flex structura">
             {% for structura in opera.explicare_structurii %}
-            <switch count={{structura.id}}><p class="switch-element trans" limb="{{structura.rovid}}">{{structura.scurt}}</p><p  class="switch-element trans hosszu" limb="{{structura.hosszu|safe}}">{{structura.hosszu|safe}}</p></switch>
+            <switch style="order:{{structura.id}}"><p class="switch-element trans" limb="{{structura.rovid}}">{{structura.scurt}}</p><p  class="switch-element trans hosszu" limb="{{structura.hosszu|safe}}">{{structura.lung|safe}}</p></switch>
             {% endfor %}
         </div>
-        <div class="flex structura">
+        <div class="flex discesc">
             <!-- <switch><p class="switch-element trans" limb="{{opera.discursul_liric.rovid}}">{{opera.discursul_liric.scurt}}</p><p  class="switch-element trans hosszu" limb="{{opera.discursul_liric.hosszu}}">{{opera.discursul_liric.lung}}</p></switch> -->
             <switch><p class="switch-element trans" limb="versbeszéd: {{opera.discursul_liric.rovid}}">discurs liric: {{opera.discursul_liric.scurt}}</p><p  class="switch-element trans" limb="{{opera.discursul_liric.hosszu}}">{{opera.discursul_liric.lung}}</p></switch>
-            <switch><p class="switch-element trans" limb="{{opera.moduri_de_expunere.rovid}}">{{opera.moduri_de_expunere.scurt}}</p><p  class="switch-element trans hosszu" limb="{{opera.moduri_de_expunere.hosszu}}">{{opera.moduri_de_expunere.lung}}</p></switch>
+            <switch><p class="switch-element trans" limb="előadási módok: {{opera.moduri_de_expunere.rovid}}">moduri de expunere: {{opera.moduri_de_expunere.scurt}}</p><p  class="switch-element trans hosszu" limb="{{opera.moduri_de_expunere.hosszu}}">{{opera.moduri_de_expunere.lung}}</p></switch>
         </div>
         
         <div class="flex linkuri">

@@ -21,28 +21,29 @@ function mobile_table_tag_loader(){
 
 function translate(element){
     var other = element.getAttribute("limb");
-    element.setAttribute("limb", element.textContent);
-    element.textContent = other;
+    element.setAttribute("limb", element.textContent) //.replaceAll("\r\n", "'ujsor'"));
+    element.textContent = other  //.replaceAll("'ujsor'", "\r\n");
 }
 
-function sorted(){
-    let containers = document.getElementsByClassName;
-    Array.from(containers).forEach((container) =>{
-        children = container?.children?.sort((a,b)=>{
-            let cond = a.getAttribute("count") < b.getAttribute("count");
-            if (cont) return 1
-            else return -1;
-        })
+// function sorted(){
+//     let containers = document.getElementsByClassName;
+//     Array.from(containers).forEach((container) =>{
+//         children = container?.children?.sort((a,b)=>{
+//             let cond = a.getAttribute("count") < b.getAttribute("count");
+//             if (cont) return 1
+//             else return -1;
+//         })
 
-    })
-}
+//     })
+// }
 
 
 function last(list){
     return list[list.length-1];
 }
 
-function click_switch(children){
+function click_switch(element){
+    let children = Array.from(element.children);
     if (last(children).style.display == "block"){
         last(children).style.display = "none";
         children[0].style.display = "block";
@@ -55,6 +56,8 @@ function click_switch(children){
                 // console.log("from: ", child)
             } else if (to_on==true){
                 child.style.display = "block";
+                if (child.classList.contains("hosszu")) element.classList.add("hosszu")
+                else element.classList.remove("hosszu");
                 // console.log("switched to child: ", child)
                 return true;
             }
@@ -93,15 +96,13 @@ window.onload = function bind(){
     // switch
     var elements = document.getElementsByTagName("switch");
 
-    // console.log(elements)
     Array.from(elements).forEach( element =>{
-        // console.log(element.children[0].style.display);
         var children = Array.from(element.children)
         children.forEach(child => {
             child.style.display = "none";
         })
             
-        element.addEventListener("click", () => click_switch(children))
+        element.addEventListener("click", () => click_switch(element))
         children[0].style.display="block";
     })
 
