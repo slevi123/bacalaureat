@@ -5,6 +5,7 @@ from data_blocks.trasaturi import trasaturi_list
 from data_blocks.sentimente import sentimente_list
 from data_blocks.teme import teme_list
 from data_blocks.cuvinte_din_o_scrisoare import cuvinte_din_o_srisoare
+from data_blocks.cuvinte_din_enigma_otiliei import cuvinte_din_enigma_otiliei
 
 
 def add_update_rows(table, lista, atributa):
@@ -68,6 +69,7 @@ def add_data():
     add_update_rows(OperaDramatica, opere_dramatice_list, "titlu")
 
     add_update_cuvinte(cuvinte_din_o_srisoare)
+    add_update_cuvinte(cuvinte_din_enigma_otiliei)
 
     print("Data Successfully updated.")
 

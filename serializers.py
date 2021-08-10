@@ -66,7 +66,7 @@ class NevNumeSerializer(SimpleSerializerBase):
     include = ["nev", "nume"]
 
 class OperaSerializer(SimpleSerializerBase):
-    include = ["titlu", "anul", "artist"]
+    include = ["titlu", "anul", "artist", "specie"]
 
 class SzoalakSerializer(SimpleSerializerBase):
     include = ["nume", "nev"]

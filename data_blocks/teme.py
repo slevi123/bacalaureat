@@ -14,5 +14,8 @@ teme_list = [
     {"nume": "timp", "nev": "idő"},
     {"nume": "patrie", "nev": "haza"},
     {"nume": "creație artistică", "nev": "művészi alkotás"},
+    {"nume": "avere", "nev": "vagyon"},
+    {"nume": "moștenire", "nev": "örökség"},
+    {"nume": "viața socială", "nev": "közösségi élet"},
     # {"nume": "+sentimente eului liric", "nev": "+lírai én érzelmei"},
 ]

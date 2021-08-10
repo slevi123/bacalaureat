@@ -1,11 +1,11 @@
-teme = [{"nev": "természet", "nume": "natură"}, {"nev": "emberi élet", "nume": "viață omului"}, {"nev": "születés", "nume": "naștere"}, {"nev": "szerelem, szeretet", "nume": "iubire"}, {"nev": "nevelés", "nume": "educație"}, {"nev": "öregkor", "nume": "bătrânețe"}, {"nev": "halál", "nume": "moarte"}, {"nev": "emberi sors", "nume": "destin uman"}, {"nev": "vallás", "nume": "religie"}, {"nev": "hit", "nume": "credință"}, {"nev": "művészet", "nume": "artă"}, {"nev": "kultúra", "nume": "cultură"}, {"nev": "idő", "nume": "timp"}, {"nev": "haza", "nume": "patrie"}, {"nev": "művészi alkotás", "nume": "creație artistică"}]
+teme = [{"nev": "természet", "nume": "natură"}, {"nev": "emberi élet", "nume": "viață omului"}, {"nev": "születés", "nume": "naștere"}, {"nev": "szerelem, szeretet", "nume": "iubire"}, {"nev": "nevelés", "nume": "educație"}, {"nev": "öregkor", "nume": "bătrânețe"}, {"nev": "halál", "nume": "moarte"}, {"nev": "emberi sors", "nume": "destin uman"}, {"nev": "vallás", "nume": "religie"}, {"nev": "hit", "nume": "credință"}, {"nev": "művészet", "nume": "artă"}, {"nev": "kultúra", "nume": "cultură"}, {"nev": "idő", "nume": "timp"}, {"nev": "haza", "nume": "patrie"}, {"nev": "művészi alkotás", "nume": "creație artistică"}, {"nev": "vagyon", "nume": "avere"}, {"nev": "örökség", "nume": "moștenire"}, {"nev": "közösségi élet", "nume": "viața socială"}]
 sentimente = [{"nev": "boldogság", "nume": "fericire"}, {"nev": "vidámság", "nume": "veselie"}, {"nev": "öröm", "nume": "bucurie"}, {"nev": "szerelem, szeretet", "nume": "dragoste"}, {"nev": "vágy", "nume": "dor"}, {"nev": "vágyakozás", "nume": "dorință"}, {"nev": "szomorúság", "nume": "tristețe"}, {"nev": "sajnálat", "nume": "părere de rău"}, {"nev": "lelki fájdalom", "nume": "durere sufletească"}, {"nev": "szenvedés", "nume": "suferință"}, {"nev": "melankólia", "nume": "melancolie"}, {"nev": "nosztalgia", "nume": "nostalgie"}, {"nev": "depresszió", "nume": "depresie"}, {"nev": "létfélelem", "nume": "spaimă existențială"}, {"nev": "harag", "nume": "supărare"}, {"nev": "gyász", "nume": "jale"}, {"nev": "magány", "nume": "singurătate"}, {"nev": "szenvedély", "nume": "pasiune"}, {"nev": "gyűlölet", "nume": "ură"}, {"nev": "irigység", "nume": "gelozie"}]
 morale = [{"nev": "jó", "nume": "bun"}, {"nev": "rossz", "nume": "rău"}, {"nev": "okos", "nume": "deștept"}, {"nev": "szerető", "nume": "iubitor"}, {"nev": "tapintatos", "nume": "amabil"}, {"nev": "idétlen", "nume": "urâcios"}]
 fizice = [{"nev": "magas", "nume": "înalt"}, {"nev": "gyenge", "nume": "slab"}, {"nev": "alacsony", "nume": "scund"}, {"nev": "kövér", "nume": "gras"}, {"nev": "szőke", "nume": "blond"}, {"nev": "göndör", "nume": "creț"}, {"nev": "barna", "nume": "saten"}]
-opere = [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}, {"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}, {"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}, {"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}, {"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}]
+opere = [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă", "specie": "basm cult"}, {"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici", "specie": "nuvelă psihologică și realistă"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale", "specie": "comedie"}, {"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu", "specie": "idilă (cu elemente de pastel)"}, {"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia", "specie": "elegie (artă poetică)"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu", "specie": "roman psihologic, modern subiectiv"}, {"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi", "specie": "artă poetică"}, {"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu", "specie": "roman modern, realist obiectiv"}]
 opere_curente = {"simbolism": [{"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}], "romantism": [{"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}], "modernism": [{"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}], "romantic realism": [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}], "modernism, realism": [{"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}], "realism": [{"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}]}
 opere_perioade = {"antebelică": [{"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}], "epoca marilor clasici": [{"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}, {"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}, {"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}], "interbelică": [{"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}]}
-cuvinte_din_compuneri = [{"nev": "remekmű", "nume": "capodoperă"}, {"nev": "nevetés", "nume": "râset"}, {"nev": "visszatérő motívum", "nume": "leitmotiv"}, {"nev": "zsarolás", "nume": "șantaj"}, {"nev": "tanító", "nume": "dascăl"}, {"nev": "ellenfél", "nume": "adversar"}, {"nev": "ellenség", "nume": "dușman"}, {"nev": "hivatalnok", "nume": "funcționar"}, {"nev": "nagyravágyás", "nume": "parvenitism"}, {"nev": "nevetni", "nume": "a râde"}, {"nev": "támogatni", "nume": "a sprijini"}, {"nev": "kibékülni", "nume": "a împăca"}, {"nev": "kémkedni", "nume": "a spiona"}, {"nev": "elérni", "nume": "a atinge"}, {"nume": "caracter moralizator", "nev": "erkölcsi jelleg"}, {"nume": "partidul de guvernământ", "nev": "kormánypárt"}, {"nume": "partidul de opoziție", "nev": "ellenzéki párt"}, {"nume": "situații jenante", "nev": "szégyenletes helyzetek"}, {"nume": "să spioneze", "nev": "hogy kémkedjen"}, {"nume": "tipul încornoratului", "nev": "a felszarvazott tipusa"}, {"nume": "tipul amorezului", "nev": "a nőcsábász tipusa"}, {"nume": "tipul femeii ușoare", "nev": "a könnyű nő tipusa"}, {"nume": "incult", "nev": "műveletlen"}, {"nume": "contemporană", "nev": "jelenkori"}, {"nume": "triunghiul conjugal", "nev": "szerelmi háromszög"}]
+cuvinte_din_compuneri = [{"nev": "remekmű", "nume": "capodoperă"}, {"nev": "nevetés", "nume": "râset"}, {"nev": "visszatérő motívum", "nume": "leitmotiv"}, {"nev": "zsarolás", "nume": "șantaj"}, {"nev": "tanító", "nume": "dascăl"}, {"nev": "ellenfél", "nume": "adversar"}, {"nev": "ellenség", "nume": "dușman"}, {"nev": "hivatalnok", "nume": "funcționar"}, {"nev": "nagyravágyás", "nume": "parvenitism"}, {"nev": "nagybácsi", "nume": "unchi"}, {"nev": "földbirtokos", "nume": "moșier"}, {"nev": "megértés", "nume": "înțelegere"}, {"nev": "igazság", "nume": "dreptate"}, {"nev": "nevetni", "nume": "a râde"}, {"nev": "támogatni", "nume": "a sprijini"}, {"nev": "kibékülni", "nume": "a împăca"}, {"nev": "kémkedni", "nume": "a spiona"}, {"nev": "elérni", "nume": "a atinge"}, {"nev": "feldolgozni", "nume": "a prelucra"}, {"nev": "fejlődni", "nume": "a se dezvolta"}, {"nev": "eleget tenni", "nume": "a satisface"}, {"nev": "ügyész", "nume": "avocat"}, {"nume": "caracter moralizator", "nev": "erkölcsi jelleg"}, {"nume": "partidul de guvernământ", "nev": "kormánypárt"}, {"nume": "partidul de opoziție", "nev": "ellenzéki párt"}, {"nume": "situații jenante", "nev": "szégyenletes helyzetek"}, {"nume": "să spioneze", "nev": "hogy kémkedjen"}, {"nume": "tipul încornoratului", "nev": "a felszarvazott tipusa"}, {"nume": "tipul amorezului", "nev": "a nőcsábász tipusa"}, {"nume": "tipul femeii ușoare", "nev": "a könnyű nő tipusa"}, {"nume": "incult", "nev": "műveletlen"}, {"nume": "contemporană", "nev": "jelenkori"}, {"nume": "triunghiul conjugal", "nev": "szerelmi háromszög"}, {"nume": "ostil", "nev": "ellenséges"}, {"nume": "primire rece", "nev": "hideg fogadtatás"}, {"nume": "îl primește cu drag", "nev": "kedvesen fogadja"}, {"nume": "face cunoștință", "nev": "megismerkedik"}, {"nume": "poftă pentru lux", "nev": "luxusvágy"}, {"nume": "bogat", "nev": "gazdag"}, {"nume": "pune mâna pe", "nev": "ráteszi a kezét"}, {"nume": "îi fură banii", "nev": "ellopja a pénzét"}, {"nume": "iubire adevărată", "nev": "igaz szerelem"}, {"nume": "reușit în viață", "nev": "sikeres az életben"}, {"nume": "situație enigmatică", "nev": "rejtélyes helyzet"}, {"nume": "martorul evenimentelor", "nev": "az események tanúja"}]
 
 function check_form(answer){
     let lookup = {
@@ -102,6 +102,7 @@ class TemaKor {
     }
 
     static generate_random_round(){
+        game_options.evaluable = true;
         // console.log(this.derived, this)
             let enabled_deriveds = [];
             this.derived.forEach((deriv)=>{
@@ -240,6 +241,18 @@ class Anul extends TemaKor {
     }
 }
 
+class Specii extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere;
+    static mixable = false;
+    static possibles = {
+        "titlu": {"pre": 'Specie literară a operei "', "post":'"?'},
+        "specie": {"pre": "Operă cu specie ", "post":"?"}, 
+    }
+}
+
 // class NotMixableTemaKor extends TemaKor{
 
 // }
@@ -337,6 +350,8 @@ class GameOptions {
 
         this.timer = undefined;
         this.correct_answer = undefined;
+
+        this.evaluable = true;
 
         this.__punctaj_dom__ = undefined;
         this.__corect_dom__ = undefined;
@@ -452,41 +467,48 @@ function on_start(){
 }
 
 function evaluate_typein_solution(){
-    let typein_answer_dom = document.getElementById("typein-answer");
-    let typein_solution_dom = document.getElementById("typein-solution");
-    let typein_dom = document.getElementById("typeins");
-    let answer = typein_answer_dom.value;
-    if (check_form(answer)==check_form(game_options.correct_answer)){
-        game_options.punctaj +=1;
-        game_options.corect +=1;
-        typein_dom.style.border="4px solid lawngreen"; 
-    } else {
-        game_options.incorect +=1;
-        game_options.punctaj -= 2;
-        typein_solution_dom.textContent=game_options.correct_answer;
-        typein_dom.style.border="4px solid red"; 
-    }       
-    
-    window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
+    if (game_options.evaluable){
+        let typein_answer_dom = document.getElementById("typein-answer");
+        let typein_solution_dom = document.getElementById("typein-solution");
+        let typein_dom = document.getElementById("typeins");
+        let answer = typein_answer_dom.value;
+        if (check_form(answer)==check_form(game_options.correct_answer)){
+            game_options.punctaj +=1;
+            game_options.corect +=1;
+            typein_dom.style.border="4px solid lawngreen"; 
+        } else {
+            game_options.incorect +=1;
+            game_options.punctaj -= 2;
+            typein_solution_dom.textContent=game_options.correct_answer;
+            typein_dom.style.border="4px solid red"; 
+        }       
+        game_options.evaluable = false;
+        
+        window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
+    }
 }
 
 function evaluate_solution(user_answer_id){
-    if (game_options.answer_id==user_answer_id){
-        game_options.punctaj +=1;
-        game_options.corect +=1;
-    } else {
-        game_options.incorect +=1;
-        game_options.punctaj -= 2;
+    if (game_options.evaluable){
+        if (game_options.answer_id==user_answer_id){
+            game_options.punctaj +=1;
+            game_options.corect +=1;
+        } else {
+            game_options.incorect +=1;
+            game_options.punctaj -= 2;
+        }
+
+        answer_doms = document.getElementById("answer-options").children
+        Array.from(answer_doms).forEach((answer_dom)=>{
+            let count = answer_dom.getAttribute("answer-count");
+            if (count==user_answer_id) answer_dom.style.border="3px solid red";;
+            if (count==game_options.answer_id) answer_dom.style.border="3px solid green";        
+        })
+
+        game_options.evaluable = false;
+
+        window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
     }
-
-    answer_doms = document.getElementById("answer-options").children
-    Array.from(answer_doms).forEach((answer_dom)=>{
-        let count = answer_dom.getAttribute("answer-count");
-        if (count==user_answer_id) answer_dom.style.border="3px solid red";;
-        if (count==game_options.answer_id) answer_dom.style.border="3px solid green";        
-    })
-
-    window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
 }
 
 function add_answer_child(parent, content, answer_count){

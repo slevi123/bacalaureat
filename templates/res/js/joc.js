@@ -102,6 +102,7 @@ class TemaKor {
     }
 
     static generate_random_round(){
+        game_options.evaluable = true;
         // console.log(this.derived, this)
             let enabled_deriveds = [];
             this.derived.forEach((deriv)=>{
@@ -240,6 +241,18 @@ class Anul extends TemaKor {
     }
 }
 
+class Specii extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere;
+    static mixable = false;
+    static possibles = {
+        "titlu": {"pre": 'Specie literară a operei "', "post":'"?'},
+        "specie": {"pre": "Operă cu specie ", "post":"?"}, 
+    }
+}
+
 // class NotMixableTemaKor extends TemaKor{
 
 // }
@@ -337,6 +350,8 @@ class GameOptions {
 
         this.timer = undefined;
         this.correct_answer = undefined;
+
+        this.evaluable = true;
 
         this.__punctaj_dom__ = undefined;
         this.__corect_dom__ = undefined;
@@ -452,41 +467,48 @@ function on_start(){
 }
 
 function evaluate_typein_solution(){
-    let typein_answer_dom = document.getElementById("typein-answer");
-    let typein_solution_dom = document.getElementById("typein-solution");
-    let typein_dom = document.getElementById("typeins");
-    let answer = typein_answer_dom.value;
-    if (check_form(answer)==check_form(game_options.correct_answer)){
-        game_options.punctaj +=1;
-        game_options.corect +=1;
-        typein_dom.style.border="4px solid lawngreen"; 
-    } else {
-        game_options.incorect +=1;
-        game_options.punctaj -= 2;
-        typein_solution_dom.textContent=game_options.correct_answer;
-        typein_dom.style.border="4px solid red"; 
-    }       
-    
-    window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
+    if (game_options.evaluable){
+        let typein_answer_dom = document.getElementById("typein-answer");
+        let typein_solution_dom = document.getElementById("typein-solution");
+        let typein_dom = document.getElementById("typeins");
+        let answer = typein_answer_dom.value;
+        if (check_form(answer)==check_form(game_options.correct_answer)){
+            game_options.punctaj +=1;
+            game_options.corect +=1;
+            typein_dom.style.border="4px solid lawngreen"; 
+        } else {
+            game_options.incorect +=1;
+            game_options.punctaj -= 2;
+            typein_solution_dom.textContent=game_options.correct_answer;
+            typein_dom.style.border="4px solid red"; 
+        }       
+        game_options.evaluable = false;
+        
+        window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
+    }
 }
 
 function evaluate_solution(user_answer_id){
-    if (game_options.answer_id==user_answer_id){
-        game_options.punctaj +=1;
-        game_options.corect +=1;
-    } else {
-        game_options.incorect +=1;
-        game_options.punctaj -= 2;
+    if (game_options.evaluable){
+        if (game_options.answer_id==user_answer_id){
+            game_options.punctaj +=1;
+            game_options.corect +=1;
+        } else {
+            game_options.incorect +=1;
+            game_options.punctaj -= 2;
+        }
+
+        answer_doms = document.getElementById("answer-options").children
+        Array.from(answer_doms).forEach((answer_dom)=>{
+            let count = answer_dom.getAttribute("answer-count");
+            if (count==user_answer_id) answer_dom.style.border="3px solid red";;
+            if (count==game_options.answer_id) answer_dom.style.border="3px solid green";        
+        })
+
+        game_options.evaluable = false;
+
+        window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
     }
-
-    answer_doms = document.getElementById("answer-options").children
-    Array.from(answer_doms).forEach((answer_dom)=>{
-        let count = answer_dom.getAttribute("answer-count");
-        if (count==user_answer_id) answer_dom.style.border="3px solid red";;
-        if (count==game_options.answer_id) answer_dom.style.border="3px solid green";        
-    })
-
-    window.setTimeout( () => {TemaKor.generate_random_round()}, 2000);
 }
 
 function add_answer_child(parent, content, answer_count){

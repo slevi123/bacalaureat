@@ -8,7 +8,7 @@ import pony.orm as pny
 from pony.orm.core import Database, Required
 
 database = pny.Database("sqlite",
-                        "test57.sqlite",
+                        "test58.sqlite",
                         create_db=True)
 
 class Gen(database.Entity):
@@ -174,6 +174,11 @@ class Substantiv(database.Entity):
     search_value = pny.Required(str)
     singular = pny.Optional(pny.Json)
     plural = pny.Optional(pny.Json)
+
+# class Acord(database.Entity):
+#     search_value = pny.Required(str)
+#     feminin_sg = pny.Optional(pny.Json)
+#     plural = pny.Optional(pny.Json)
 
 class Verb(database.Entity):
     search_value = pny.Required(str)
