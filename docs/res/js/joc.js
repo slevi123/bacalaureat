@@ -6,6 +6,7 @@ opere = [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creang
 opere_curente = {"simbolism": [{"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}], "romantism": [{"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}], "modernism": [{"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}], "romantic realism": [{"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}], "modernism, realism": [{"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}], "realism": [{"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}]}
 opere_perioade = {"antebelică": [{"titlu": "Plumb", "anul": 1916, "artist": "George Bacovia"}], "epoca marilor clasici": [{"titlu": "Sara pe deal", "anul": 1885, "artist": "Mihai Eminescu"}, {"titlu": "Povestea lui Harap-Alb", "anul": 1877, "artist": "Ion Creangă"}, {"titlu": "Moara cu noroc", "anul": 1881, "artist": "Ioan Slavici"}, {"titlu": "O scrisoare pierdută", "anul": 1884, "artist": "Ion Luca Caragiale"}], "interbelică": [{"titlu": "Flori de mucigai", "anul": 1931, "artist": "Tudor Arghezi"}, {"titlu": "Enigma Otiliei", "anul": 1938, "artist": "George Călinescu"}, {"titlu": "Ultima noapte de dragoste, întâia noapte de război", "anul": 1930, "artist": "Camil Petrescu"}]}
 cuvinte_din_compuneri = [{"nev": "remekmű", "nume": "capodoperă"}, {"nev": "nevetés", "nume": "râset"}, {"nev": "visszatérő motívum", "nume": "leitmotiv"}, {"nev": "zsarolás", "nume": "șantaj"}, {"nev": "tanító", "nume": "dascăl"}, {"nev": "ellenfél", "nume": "adversar"}, {"nev": "ellenség", "nume": "dușman"}, {"nev": "hivatalnok", "nume": "funcționar"}, {"nev": "nagyravágyás", "nume": "parvenitism"}, {"nev": "nagybácsi", "nume": "unchi"}, {"nev": "földbirtokos", "nume": "moșier"}, {"nev": "megértés", "nume": "înțelegere"}, {"nev": "igazság", "nume": "dreptate"}, {"nev": "nevetni", "nume": "a râde"}, {"nev": "támogatni", "nume": "a sprijini"}, {"nev": "kibékülni", "nume": "a împăca"}, {"nev": "kémkedni", "nume": "a spiona"}, {"nev": "elérni", "nume": "a atinge"}, {"nev": "feldolgozni", "nume": "a prelucra"}, {"nev": "fejlődni", "nume": "a se dezvolta"}, {"nev": "eleget tenni", "nume": "a satisface"}, {"nev": "ügyész", "nume": "avocat"}, {"nume": "caracter moralizator", "nev": "erkölcsi jelleg"}, {"nume": "partidul de guvernământ", "nev": "kormánypárt"}, {"nume": "partidul de opoziție", "nev": "ellenzéki párt"}, {"nume": "situații jenante", "nev": "szégyenletes helyzetek"}, {"nume": "să spioneze", "nev": "hogy kémkedjen"}, {"nume": "tipul încornoratului", "nev": "a felszarvazott tipusa"}, {"nume": "tipul amorezului", "nev": "a nőcsábász tipusa"}, {"nume": "tipul femeii ușoare", "nev": "a könnyű nő tipusa"}, {"nume": "incult", "nev": "műveletlen"}, {"nume": "contemporană", "nev": "jelenkori"}, {"nume": "triunghiul conjugal", "nev": "szerelmi háromszög"}, {"nume": "ostil", "nev": "ellenséges"}, {"nume": "primire rece", "nev": "hideg fogadtatás"}, {"nume": "îl primește cu drag", "nev": "kedvesen fogadja"}, {"nume": "face cunoștință", "nev": "megismerkedik"}, {"nume": "poftă pentru lux", "nev": "luxusvágy"}, {"nume": "bogat", "nev": "gazdag"}, {"nume": "pune mâna pe", "nev": "ráteszi a kezét"}, {"nume": "îi fură banii", "nev": "ellopja a pénzét"}, {"nume": "iubire adevărată", "nev": "igaz szerelem"}, {"nume": "reușit în viață", "nev": "sikeres az életben"}, {"nume": "situație enigmatică", "nev": "rejtélyes helyzet"}, {"nume": "martorul evenimentelor", "nev": "az események tanúja"}]
+opere_lirice = [{"titlu": "Plumb", "ritm": "iambic, amfibrah", "rima": "îmbrățișată", "masura": "10 silabe"}, {"titlu": "Sara pe deal", "ritm": "un coriamb, doi dactili şi un troheu", "rima": "împerecheată", "masura": "12 silabe"}, {"titlu": "Flori de mucigai", "ritm": "modern", "rima": "liberă", "masura": "variabilă"}]
 
 function check_form(answer){
     let lookup = {
@@ -13,6 +14,7 @@ function check_form(answer){
         "é": "e",
         "ö": "o",
         "ő": "o",
+        "ó": "o",
         "ú": "u",
         "ü": "u",
         "ű": "u",
@@ -229,12 +231,43 @@ class AsemTemaKor extends TemaKor{
 
 }
 
+class Rime extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere_lirice;
+    static possibles = {
+        "titlu": {"pre": 'Rima operei "', "post":'"?'},
+        "rima": {"pre": "Operă cu rimă ", "post":"?"}, 
+    }
+}
+class Ritme extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = false;
+
+    static list = opere_lirice;
+    static possibles = {
+        "titlu": {"pre": 'Ritmul operei "', "post":'"?'},
+        "ritm": {"pre": "Operă cu ritm ", "post":"?"}, 
+    }
+}
+class Masure extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere_lirice;
+    static possibles = {
+        "titlu": {"pre": 'Măsura operei "', "post":'"?'},
+        "masura": {"pre": "Operă cu măsură ", "post":"?"}, 
+    }
+}
+
 class Anul extends TemaKor {
     static dummy = TemaKor.derived.push(this);
     static enabled = true;
 
     static list = opere;
-    static mixable = false;
+    // static mixable = false;
     static possibles = {
         "titlu": {"pre": 'Anul apariției operei "', "post":'"?'},
         "anul": {"pre": "Operă apărută în ", "post":"?"}, 

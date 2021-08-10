@@ -107,6 +107,7 @@ window.onload = function bind(){
 
     //collapsibes
     shower({"check":false}, "prozodie");
+    shower({"check":false}, "specie");
 
     let coll = document.getElementsByClassName("collapsible");
     let i;

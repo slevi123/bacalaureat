@@ -6,6 +6,7 @@ opere = {{opere|safe}}
 opere_curente = {{opere_curente|safe}}
 opere_perioade = {{opere_perioade|safe}}
 cuvinte_din_compuneri = {{cuvinte_din_compuneri|safe}}
+opere_lirice = {{opere_lirice|safe}}
 
 function check_form(answer){
     let lookup = {
@@ -13,6 +14,7 @@ function check_form(answer){
         "é": "e",
         "ö": "o",
         "ő": "o",
+        "ó": "o",
         "ú": "u",
         "ü": "u",
         "ű": "u",
@@ -229,12 +231,43 @@ class AsemTemaKor extends TemaKor{
 
 }
 
+class Rime extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere_lirice;
+    static possibles = {
+        "titlu": {"pre": 'Rima operei "', "post":'"?'},
+        "rima": {"pre": "Operă cu rimă ", "post":"?"}, 
+    }
+}
+class Ritme extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = false;
+
+    static list = opere_lirice;
+    static possibles = {
+        "titlu": {"pre": 'Ritmul operei "', "post":'"?'},
+        "ritm": {"pre": "Operă cu ritm ", "post":"?"}, 
+    }
+}
+class Masure extends TemaKor {
+    static dummy = TemaKor.derived.push(this);
+    static enabled = true;
+
+    static list = opere_lirice;
+    static possibles = {
+        "titlu": {"pre": 'Măsura operei "', "post":'"?'},
+        "masura": {"pre": "Operă cu măsură ", "post":"?"}, 
+    }
+}
+
 class Anul extends TemaKor {
     static dummy = TemaKor.derived.push(this);
     static enabled = true;
 
     static list = opere;
-    static mixable = false;
+    // static mixable = false;
     static possibles = {
         "titlu": {"pre": 'Anul apariției operei "', "post":'"?'},
         "anul": {"pre": "Operă apărută în ", "post":"?"}, 

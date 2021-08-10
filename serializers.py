@@ -45,7 +45,7 @@ class CuvantSerializer(SimpleSerializerBase):
 
 
 class AsemSerializerBase(SimpleSerializerBase):
-    asem_field = ""
+    # asem_field = ""
 
     def query_serialize(self, query):
         pythonic = defaultdict(lambda:[])
@@ -54,19 +54,22 @@ class AsemSerializerBase(SimpleSerializerBase):
         return dumps(pythonic, ensure_ascii=False)
 
 
-class OperaCurentSerializer(AsemSerializerBase):
-    asem_field = "curent"
+class OperaAsemSerializer(AsemSerializerBase):
     include = ["titlu", "anul", "artist"]
+#     asem_field = "curent"
 
-class OperaPerioadaSerializer(AsemSerializerBase):
-    asem_field = "perioada"
-    include = ["titlu", "anul", "artist"]
+# class OperaPerioadaSerializer(AsemSerializerBase):
+#     asem_field = "perioada"
+#     include = ["titlu", "anul", "artist"]
 
 class NevNumeSerializer(SimpleSerializerBase):
     include = ["nev", "nume"]
 
 class OperaSerializer(SimpleSerializerBase):
     include = ["titlu", "anul", "artist", "specie"]
+
+class OperaLiricaSerializer(SimpleSerializerBase):
+    include = ["titlu", "ritm", "rima", "masura"]
 
 class SzoalakSerializer(SimpleSerializerBase):
     include = ["nume", "nev"]

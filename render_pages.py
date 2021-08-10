@@ -3,7 +3,7 @@ import pony.orm as pny
 from models import Opera, OperaDramatica, OperaEpica, OperaLirica, Sentiment, StructAlt, Substantiv, Tema, Trasatura, Verb
 from pathlib import Path
 from filters import register_filters, linkify
-from serializers import CuvantSerializer, NevNumeSerializer, OperaCurentSerializer, OperaSerializer
+from serializers import OperaAsemSerializer, CuvantSerializer, NevNumeSerializer, OperaLiricaSerializer, OperaSerializer
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def render():
@@ -54,9 +54,10 @@ def render():
         teme_fara_sentimente = pny.select(tema for tema in Tema if not isinstance(tema, Sentiment))
         nn_ser = NevNumeSerializer()
         op_ser = OperaSerializer()
-        op_cur_ser = OperaCurentSerializer()
-        op_per_ser = OperaCurentSerializer()
+        asem_ser = OperaAsemSerializer()
+        # asem_ser = OperaCurentSerializer()
         cuv_ser = CuvantSerializer()
+        op_lir_ser = OperaLiricaSerializer()
 
         opere_by_curent = pny.select((opera.curent.nume, opera) for opera in Opera)
         opere_by_perioada = pny.select((opera.perioada, opera) for opera in Opera)
@@ -68,8 +69,8 @@ def render():
 
         process("jocuri/limb.html")
         process("res/js/joc.js", context={"teme": nn_ser.query_serialize(teme_fara_sentimente), "sentimente": nn_ser.query_serialize(sentimente), 
-            "morale": nn_ser.query_serialize(morale), "fizice": nn_ser.query_serialize(fizice), "opere": op_ser.query_serialize(opere), "opere_curente": op_cur_ser.query_serialize(opere_by_curent),
-            "opere_perioade": op_per_ser.query_serialize(opere_by_perioada), "cuvinte_din_compuneri": cuv_ser.query_serialize(substantive, verbe, structalte)})
+            "morale": nn_ser.query_serialize(morale), "fizice": nn_ser.query_serialize(fizice), "opere": op_ser.query_serialize(opere), "opere_curente": asem_ser.query_serialize(opere_by_curent),
+            "opere_perioade": asem_ser.query_serialize(opere_by_perioada), "cuvinte_din_compuneri": cuv_ser.query_serialize(substantive, verbe, structalte), "opere_lirice": op_lir_ser.query_serialize(opere_lirice)})
 
         for opera in opere_lirice:
             process(f"opera/{linkify(opera.titlu)}.html", context = {"opera": opera}, template_path="opera_lirica.html")
