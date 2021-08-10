@@ -63,6 +63,17 @@ function click_switch(children){
     }
 }
 
+function shower(check_dom, class_name){
+    elements = document.getElementsByClassName(class_name)
+    if (check_dom.checked){
+        var display = "";
+    } else {
+        var display = "none"
+    }
+    Array.from(elements).forEach(element => {
+        element.style.display = display;
+    });
+}
 
 window.onload = function bind(){
     // translate
@@ -93,5 +104,28 @@ window.onload = function bind(){
         element.addEventListener("click", () => click_switch(children))
         children[0].style.display="block";
     })
+
+    //collapsibes
+    shower({"check":false}, "prozodie");
+
+    let coll = document.getElementsByClassName("collapsible");
+    let i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.getAttribute("visible")=="true"){
+          content.style.display = "none";
+          content.setAttribute("visible", "false")
+          this.textContent = this.textContent.slice(0, -1) + "▼";
+        } else {
+            content.style.display = "flex";
+            content.setAttribute("visible", "true")
+            this.textContent = this.textContent.slice(0, -1) + "▲";
+        }
+      });
+    }
+
 }
 

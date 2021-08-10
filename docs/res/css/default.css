@@ -28,6 +28,17 @@ r{
     color: rgb(255, 47, 47);
 }
 
+button {
+    border-radius: 25px;
+    background: rgba(179, 179, 236, 0.719);
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
 g{
     color: rgb(47, 255, 47);
 }
@@ -281,5 +292,56 @@ table td {
         /* white-space: pre; */
         /* overflow: hidden; */
     }
+
+    #tabled-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #table-container h2{
+        order: 1;
+    }
+
+    .card{
+        order: 3;
+    }
+
+    #table-options{
+        order:2;
+        margin-bottom: 20px;
+    }
+
+    #table-options > #optiuni{
+        /* display: flex; */
+        flex-direction: row;
+    }
+
+    #optiuni > label{
+        margin: 0px 7px;
+    }
     
+}
+
+#optiuni-button{
+    background: rgba(0, 0, 0, 0.233);
+    margin-top: 30px;
+    margin-bottom: 0px;
+    padding: 2px 4px ;
+}
+
+#optiuni{
+    margin-top: 5px;
+    padding: 20px 25px;
+
+    border-radius: 10px;
+    background: whitesmoke;
+    display: none;
+    flex-direction: column;
+    /* justify-content: left; */
+    align-items: left;
+    overflow: auto;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    width: fit-content;
+
 }

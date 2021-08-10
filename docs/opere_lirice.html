@@ -26,56 +26,71 @@
     <body>
         <h1 class="logo unselectable"><a href="./index.html">Bac</a></h1>
         
-    <h2>Opere Lirice</h2>
-    <table style="width:100%" class="card">
-        <thead>
-            <tr>
-                <th>Nume</th>
-                <th>Autor</th>
-                <th>An</th>
-                <th>Curent Literar</th>
-                <th class="prozodie">Ritm</th>
-                <th class="prozodie">Rimă</th>
-                <th class="prozodie">Măsură</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            <tr>
-                <td><a href="./opera/plumb.html">Plumb</a></td>
-                <td>George Bacovia</td>
-                <td>1916</td>
-                <td>simbolism</td>
-                <td class="prozodie">iambic, amfibrah</td>
-                <td class="prozodie">abba</td>
-                <td class="prozodie">10 silabe</td>
-            </tr>
-            
-            <tr>
-                <td><a href="./opera/sara_pe_deal.html">Sara pe deal</a></td>
-                <td>Mihai Eminescu</td>
-                <td>1885</td>
-                <td>romantism</td>
-                <td class="prozodie">un coriamb, doi dactili şi un troheu</td>
-                <td class="prozodie">abcd</td>
-                <td class="prozodie">12 silabe</td>
-            </tr>
-            
-            <tr>
-                <td><a href="./opera/flori_de_mucigai.html">Flori de mucigai</a></td>
-                <td>Tudor Arghezi</td>
-                <td>1931</td>
-                <td>modernism</td>
-                <td class="prozodie">modern</td>
-                <td class="prozodie">-</td>
-                <td class="prozodie">variabilă</td>
-            </tr>
-            
-        </tbody>
-    </table>
+    <div id="tabled-container">
+        <h2>Opere Lirice</h2>
+        <table style="width:100%" class="card">
+            <thead>
+                <tr>
+                    <th>Nume</th>
+                    <th>Autor</th>
+                    <th>An</th>
+                    <th>Curent Literar</th>
+                    <th class="specie">Specie</th>
+                    <th class="prozodie">Ritm</th>
+                    <th class="prozodie">Rimă</th>
+                    <th class="prozodie">Măsură</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td><a href="./opera/plumb.html">Plumb</a></td>
+                    <td>George Bacovia</td>
+                    <td>1916</td>
+                    <td>simbolism</td>
+                    <td class="specie">elegie (artă poetică)</td>
+                    <td class="prozodie">iambic, amfibrah</td>
+                    <td class="prozodie">abba</td>
+                    <td class="prozodie">10 silabe</td>
+                </tr>
+                
+                <tr>
+                    <td><a href="./opera/sara_pe_deal.html">Sara pe deal</a></td>
+                    <td>Mihai Eminescu</td>
+                    <td>1885</td>
+                    <td>romantism</td>
+                    <td class="specie">idilă (cu elemente de pastel)</td>
+                    <td class="prozodie">un coriamb, doi dactili şi un troheu</td>
+                    <td class="prozodie">abcd</td>
+                    <td class="prozodie">12 silabe</td>
+                </tr>
+                
+                <tr>
+                    <td><a href="./opera/flori_de_mucigai.html">Flori de mucigai</a></td>
+                    <td>Tudor Arghezi</td>
+                    <td>1931</td>
+                    <td>modernism</td>
+                    <td class="specie">artă poetică</td>
+                    <td class="prozodie">modern</td>
+                    <td class="prozodie">-</td>
+                    <td class="prozodie">variabilă</td>
+                </tr>
+                
+            </tbody>
+        </table>
 
-    <label for="prozodia-check">Prozodia: </label>
-    <input type="checkbox" id="prozodia-check" name="prozodia-check" value="show">
+        <div id="table-options">
+            <button id="optiuni-button" class="collapsible">opțiuni▼</button>
+                <div id="optiuni" class="unselectable content" visible="false">
+                <label for="prozodia-check">prozodie: 
+                    <input type="checkbox" id="prozodia-check" onchange="shower(this, 'prozodie')">
+                </label>
+                <label for="specie-check">specie: 
+                    <input type="checkbox" id="specie-check" onchange="shower(this, 'specie')">
+                </label>
+            </div>
+        </div>
+    </div>
 
         <h6>under active development!</h6>
     </body>
