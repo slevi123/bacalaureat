@@ -235,6 +235,10 @@ table td {
 
 
 @media screen and (max-width: 600px) {
+
+    .flex{
+        margin: 0 10px;
+    }
     
     .kis-cim{
         font-size: 10px;
