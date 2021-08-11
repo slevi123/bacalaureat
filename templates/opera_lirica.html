@@ -30,6 +30,9 @@
             <p limb="{{pair[1]}}">{{pair[0]}}</p>
             {% endfor %}
         </div>
+        <div class="flex justificarea-incadrarii">
+            <switch><p class="switch-element trans" limb="{{opera.justificarea_incadrarii['rovid']}}">{{opera.justificarea_incadrarii['scurt']}}</p><p  class="switch-element trans hosszu" limb="{{opera.justificarea_incadrarii['hosszu']}}">{{opera.justificarea_incadrarii['lung']}}</p></switch>
+        </div>
         <div class="flex extras">
             {% for extra in opera.extras %}
             <switch><p class="switch-element trans" limb="{{extra.rovid}}">{{extra.scurt}}</p><p  class="switch-element trans hosszu" limb="{{extra.hosszu}}">{{extra.lung}}</p></switch>

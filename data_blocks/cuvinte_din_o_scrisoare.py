@@ -1,7 +1,7 @@
 from models import Substantiv, Verb, StructAlt
 
 
-cuvinte_din_o_srisoare = [
+cuvinte_din_o_scrisoare = [
     [Substantiv,
         lambda cuvant:cuvant["singular"]["nume"],
         "search_value",

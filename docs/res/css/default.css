@@ -127,6 +127,10 @@ trans:active, trans:hover{
     background: rgb(191, 203, 236);
 }
 
+.justificarea-incadrarii >* {
+    background: rgba(195, 223, 39, 0.623);
+}
+
 .structura >* {
     background: rgba(202, 69, 180, 0.623);
 }

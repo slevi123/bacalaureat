@@ -70,7 +70,7 @@ def render():
         process("jocuri/limb.html")
         process("res/js/joc.js", context={"teme": nn_ser.query_serialize(teme_fara_sentimente), "sentimente": nn_ser.query_serialize(sentimente), 
             "morale": nn_ser.query_serialize(morale), "fizice": nn_ser.query_serialize(fizice), "opere": op_ser.query_serialize(opere), "opere_curente": asem_ser.query_serialize(opere_by_curent),
-            "opere_perioade": asem_ser.query_serialize(opere_by_perioada), "cuvinte_din_compuneri": cuv_ser.query_serialize(substantive, verbe, structalte), "opere_lirice": op_lir_ser.query_serialize(opere_lirice)})
+            "opere_perioade": asem_ser.query_serialize(opere_by_perioada), "cuvinte_din_compuneri": cuv_ser.query_serialize(substantive, verbe, structalte, opere_lirice), "opere_lirice": op_lir_ser.query_serialize(opere_lirice)})
 
         for opera in opere_lirice:
             process(f"opera/{linkify(opera.titlu)}.html", context = {"opera": opera}, template_path="opera_lirica.html")

@@ -8,7 +8,7 @@ import pony.orm as pny
 from pony.orm.core import Database, Required
 
 database = pny.Database("sqlite",
-                        "test58.sqlite",
+                        "test60.sqlite",
                         create_db=True)
 
 class Gen(database.Entity):
@@ -71,6 +71,7 @@ class Opera(database.Entity):
     perioada = pny.Optional(str)
 
     extras = pny.Set(Extra)
+    justificarea_incadrarii = pny.Optional(pny.Json)
 
     #TODO: structura
 

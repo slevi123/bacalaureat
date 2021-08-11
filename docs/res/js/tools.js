@@ -47,6 +47,8 @@ function click_switch(element){
     if (last(children).style.display == "block"){
         last(children).style.display = "none";
         children[0].style.display = "block";
+        if (children[0].classList.contains("hosszu")) element.classList.add("hosszu")
+        else element.classList.remove("hosszu");
     } else {
         var to_on = false;
         children.every(child => {

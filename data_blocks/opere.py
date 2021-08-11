@@ -31,7 +31,7 @@ def load_opere():
             "tema": Atribut(scurt="condiția poetului", rovid="a költő szerepe", lung="Tema prezintă condiția poetului damnat care este contrâns să creeze artă eternă în cele mai grele condiții.", hosszu="A vers témája bemutatja az elítélt költő szerepét, aki arra kényszerül, hogy a legnehezebb körülmények között maradandót alkosson."), 
             "semnificatia_titlului": Atribut(scurt="metaforă/oximoron, frumosul din urât", lung="Titlul (metaforă/oximoron) sugerează că frumosul artistic poate crește și din urât, așa cum florile cresc deasupra mucegaiului.", rovid= "metafora/oximoron, szép a csúfból", hosszu="A cím sugallja, hogy a művészi szép a csúnyából is kinőhet, mintahogy a penészen is nőnek virágok."),
             "rima": Rima.e("liberă"), "masura": "variabilă", "ritm": "modern", "creatia": citire_poeziei("flori_de_mucigai"),
-            "motive_specifice":"perete celulei:cellafalak, firidă:rács, întuneric:sötétség, groapă:gödör, ploaie:eső", "revista":"Flori de mucigai", "perioada": "interbelică",  "specie": "artă poetică",
+            "motive_specifice":"perete celulei:cellafalak, firidă:cella, întuneric:sötétség, groapă:gödör, ploaie:eső", "revista":"Flori de mucigai", "perioada": "interbelică",  "specie": "artă poetică",
             "linkuri": "psihotrop,https://youtu.be/r5BvyojeHqw;video-analiză,https://youtu.be/24rpox8HIRU",
             "discursul_liric": Atribut(scurt="profund suiectiv", rovid="erőteljesen szubiektív", lung="Discursul liric este dominat de un profund subiectivism.", hosszu="A versbeszédet mély szubiektivizmus uralja."),
             "moduri_de_expunere": Atribut(scurt="descriere artistică tip cadru și monolog liric interior", rovid="művészi keretleírás és belső lírai monológ", lung="Modurile de expunere prezente în poezie sunt descrierea artistică de tip cadru, interiorul închisorii și monolog liric interior aprofundat.", hosszu="A versben jelenlevő előadási módok a művészi keretleírás, a börtön belseje és az elmélyült belső lírai monológ."),
@@ -44,17 +44,22 @@ def load_opere():
                     Az alkotó ezek a feltételek között is arra van átkozva, hogy alkosson, minden keze ügyében levő eszközzel.\
                     Ő írja a művét, kezének körmével karcolva a cella falaiba íróeszköz hiányában.\
                     \r\nNem segíti őt Isten se, aki nem küld neki szent állatokat, mint az Evangelistáknak a három szent állatot, a bika, az oroszlán és a keselyű vallási szimbolumokként jelennek meg, az áldozatot jelképezve.",
-                scurt="Prima strofă", rovid="Az első versszak"),
+                scurt="Prima strofă: condiția dramatică în închisoare, zgâriere cu ungii, animalele sfinte", rovid="Az első versszak: drámai helyzet a börtönben, körömmel karcolás, szent állatok"),
                 Atribut(lung="Strofa a doua descrie caracteristicile unei asemenea opere literare , născută din durere, doliu, revoltă și lipsa de credință.\
                     E o poezie la fel ca și viața condamnaților.\
-                    Versurilor le este sete, foame, suferă de frig și apar ca versurile morții, dar sunt eterne deoarece sunt născută prin jertfă.",
+                    Versurilor le este sete, foame, suferă de frig și apar ca versurile morții, dar sunt eterne deoarece sunt născută prin jertfă.\
+                    \r\nLa un anume moment dat creatorul vrea să-și completeze opera, dar îsi pierde instrumentul divin și nu are încotro trebuie să-și folosească unghiile de la mâna stângă, simbolul demonic, apelând la ajutorul forțelor negative pentru a-și termina opera.\
+                    \r\nInstrumentul de scris este un simbol satanic, diavolesc care simbolizează în cele din urmă lipsa credinței în Dumnezeu.",
                 hosszu="A második szakasz egy hasonló, fájdalomból, gyászból és hitvesztettségből született irodalmi alkotás jellemzőit írja le.\
-                    "
-                ,scurt="Strofa a doua", rovid="Az második versszak"),
+                    A vers ugyanolyan, mint az elítéltek élete.\
+                    A versorok szomjasak, éhesek, fáznak és a halál soraiként jelennek meg, de végtelenek, mivel áldozat által születtek.\
+                    \r\nEgy adott pillantban az alkotó be szeretné fejezni művét, de elveszti az isteni eszközét és nincs amit tegyen, használnia kell a bal keze körmeit, démoni szibolum, negatív erők segítségét kéri, hogy befejezhesse művét.\
+                    \r\nAz íróeszköz sátáni, ördögi szimbolum, amely a végén az Istenbe vetett hit hiányát szimbolizálja."
+                ,scurt="Strofa a doua: lipsa credinței, versurile, jertfă, lipsa instrumentului divin, simbol satanic", rovid="Az második versszak: hitvesztettség, a verssorok, isteni eszköz hiánya, sátáni szimbolum."),
 
-                ],
+            ],
+            "justificarea_incadrarii": {"scurt": "limbajul metaforic, modernitate elementelor de versificație", "rovid": "metaforikus nyelvezet, modern verselési elemek", "lung": "Modernismul fiind prezent în poezie prin folosirea limbajului metaforic și prin modernitatea elementelor de versificație, rima liberă și măsura inegală.", "hosszu": "A modernizmus megjelenik a metaforikus nyelvezet használatában és a verselési elemek modernségében, a szabadrím és a szabálytalan versmérték."},
             "extras": [
-                Extra(scurt="limbajul metaforic, modernitate elementelor de versificație", rovid="metaforikus nyelvezet, modern verselési elemek", lung="Modernismul fiind prezent în poezie prin folosirea limbajului metaforic și prin modernitatea elementelor de versificație, rima liberă și măsura inegală.", hosszu="A modernizmus megjelenik a metaforikus nyelvezet használatában és a verselési elemek modernségében, a szabadrím és a szabálytalan versmérték."),
                 Extra(lung="Tudor Arghezi unul dintre cei mai importanți reprezentați ai modernismului românesc.", hosszu="Tudor Arghezi egyike a román modernizmus legfontosabb képviselőinek.", scurt="Arghezi: important reprezentant", rovid="Arghezi: fontos képviselő"),
                 Extra(scurt="artă poetică a esteticii urâtului", rovid="művészi hitvallása a csúf esztétikájának", lung="E o artă poetică a esteticii urâtului, estetică specifică creațiilor argheziene.", hosszu="Költői hitvallása a csúf esztétikájának, mely az Arghezi alkotások sajátos esztétikája."),
                 Extra(scurt='inspirată de: "Les fluers du mal"', rovid='inspirálodott: "Romlás virágai"', lung='A fost inspirat de operă "Les fleurs du mal" scrisă de Baudelaire.', hosszu='Baudelaire "Romlás virágai" című alkotása inspirálta.'),

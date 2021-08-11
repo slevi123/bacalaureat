@@ -36,11 +36,22 @@ class CuvantSerializer(SimpleSerializerBase):
     def structalt_query_loader(query):
         return [{"nume": cuvant.nume, "nev": cuvant.nev} for cuvant in query]
 
+    @staticmethod
+    def motive_query_loader(liric_query):
+        lista = []
+        for opera in liric_query:
+            for motiv in opera.motive_specifice.split(", "):
+                roman, magyar = motiv.split(":")
+                lista.append({"nume":   roman, "nev": magyar})
+        return lista
+            
 
-    def query_serialize(self, substantive_query, verb_query, structalt_query):
+
+    def query_serialize(self, substantive_query, verb_query, structalt_query, opere_lirice_query):
         pythonic = self.substantive_query_loader(substantive_query)
         pythonic += self.verb_query_loader(verb_query)
         pythonic += self.structalt_query_loader(structalt_query)
+        pythonic += self.motive_query_loader(opere_lirice_query)
         return dumps(pythonic, ensure_ascii=False)
 
 

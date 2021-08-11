@@ -4,8 +4,9 @@ from data_blocks.opere import load_opere
 from data_blocks.trasaturi import trasaturi_list
 from data_blocks.sentimente import sentimente_list
 from data_blocks.teme import teme_list
-from data_blocks.cuvinte_din_o_scrisoare import cuvinte_din_o_srisoare
+from data_blocks.cuvinte_din_o_scrisoare import cuvinte_din_o_scrisoare
 from data_blocks.cuvinte_din_enigma_otiliei import cuvinte_din_enigma_otiliei
+from data_blocks.cuvinte_din_flori_de_mucigai import cuvinte_din_flori_de_mucigai
 
 
 def add_update_rows(table, lista, atributa):
@@ -68,8 +69,9 @@ def add_data():
     add_update_rows(OperaEpica, opere_epice_list, "titlu")
     add_update_rows(OperaDramatica, opere_dramatice_list, "titlu")
 
-    add_update_cuvinte(cuvinte_din_o_srisoare)
+    add_update_cuvinte(cuvinte_din_o_scrisoare)
     add_update_cuvinte(cuvinte_din_enigma_otiliei)
+    add_update_cuvinte(cuvinte_din_flori_de_mucigai)
 
     print("Data Successfully updated.")
 
