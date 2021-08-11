@@ -149,10 +149,13 @@ trans:active, trans:hover{
     margin: 15px;
 }
 
+switch{
+    white-space:pre-line;
+}
+
 .hosszu {
     border-radius: 10px;
     /* color: khaki; */
-    white-space:pre-line;
     /* margin-top: 20px; */
 }
 

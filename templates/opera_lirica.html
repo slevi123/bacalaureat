@@ -35,7 +35,7 @@
         </div>
         <div class="flex extras">
             {% for extra in opera.extras %}
-            <switch><p class="switch-element trans" limb="{{extra.rovid}}">{{extra.scurt}}</p><p  class="switch-element trans hosszu" limb="{{extra.hosszu}}">{{extra.lung}}</p></switch>
+            <switch  style="order:{{extra.id}}"><p class="switch-element trans" limb="{{extra.rovid}}">{{extra.scurt}}</p><p  class="switch-element trans hosszu" limb="{{extra.hosszu}}">{{extra.lung}}</p></switch>
             {% endfor %}
         </div>
         <div class="flex structura">
